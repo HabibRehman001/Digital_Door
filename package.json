@@ -1,0 +1,13 @@
+{
+  "name": "digitaldoor",
+  "version": "1.0.0",
+  "private": true,
+  "description": "DigitalDoor website — static site + contact API for Vercel",
+  "scripts": {
+    "dev": "vercel dev",
+    "deploy": "vercel --prod"
+  },
+  "dependencies": {
+    "nodemailer": "^6.9.15"
+  }
+}
