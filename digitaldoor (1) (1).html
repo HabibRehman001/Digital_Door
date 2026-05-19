@@ -71,7 +71,15 @@
     background: rgba(255,255,255,0.94);
     backdrop-filter: blur(24px);
     border-bottom: 1px solid rgba(201,168,76,0.15);
-    transition: all 0.4s;
+    transform: translateY(0);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                padding 0.4s ease,
+                box-shadow 0.4s ease;
+    will-change: transform;
+  }
+  nav.nav-hidden {
+    transform: translateY(-100%);
+    pointer-events: none;
   }
   nav.scrolled {
     padding: 1rem 5%;
@@ -2248,11 +2256,32 @@
   }, { threshold: 0.08 });
   reveals.forEach(r => observer.observe(r));
 
-  // Nav scroll
+  // Nav: hide on scroll down, show on scroll up
   const nav = document.getElementById('mainNav');
+  let lastScrollY = window.scrollY;
+  let scrollTicking = false;
+
   window.addEventListener('scroll', () => {
-    nav.classList.toggle('scrolled', window.scrollY > 60);
-  });
+    if (scrollTicking) return;
+    scrollTicking = true;
+    requestAnimationFrame(() => {
+      const y = window.scrollY;
+      const delta = y - lastScrollY;
+
+      nav.classList.toggle('scrolled', y > 60);
+
+      if (y <= 60 || document.body.classList.contains('nav-open')) {
+        nav.classList.remove('nav-hidden');
+      } else if (delta > 4) {
+        nav.classList.add('nav-hidden');
+      } else if (delta < -4) {
+        nav.classList.remove('nav-hidden');
+      }
+
+      lastScrollY = y;
+      scrollTicking = false;
+    });
+  }, { passive: true });
 
   // Smooth scroll
   document.querySelectorAll('a[href^="#"]').forEach(a => {
