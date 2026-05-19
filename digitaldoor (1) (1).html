@@ -1,2532 +1,3509 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>DigitalDoor — We Build Your Digital Future</title>
-<meta name="description" content="Karachi's premier web studio for local businesses — websites, e-commerce, and WhatsApp integration delivered in 7 days.">
-<meta property="og:title" content="DigitalDoor — We Build Your Digital Future">
-<meta property="og:description" content="Professional websites for Karachi boutiques, restaurants, salons & more. From Rs 15,000.">
-<meta property="og:image" content="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80">
-<meta name="theme-color" content="#0B1628">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect fill='%230B1628' width='32' height='32'/><text x='16' y='22' text-anchor='middle' font-family='Georgia' font-size='18' font-weight='bold' fill='%23C9A84C'>D</text></svg>">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
-<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
-<style>
-  :root {
-    --gold: #C9A84C;
-    --gold-light: #E8C97A;
-    --gold-pale: #F5E6C0;
-    --gold-dark: #8C6D28;
-    --navy: #0B1628;
-    --navy2: #0F1E38;
-    --navy3: #162540;
-    --navy4: #1C2E4E;
-    --white: #FFFFFF;
-    --off-white: #F8F6F2;
-    --cream: #F2EDE3;
-    --muted: #8A95A8;
-    --muted-dark: #4A5568;
-    --text: #1A2540;
-  }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>DigitalDoor — We Build Your Digital Future</title>
+  <meta name="description"
+    content="Karachi's premier web studio for local businesses — websites, e-commerce, and WhatsApp integration delivered in 7 days.">
+  <meta property="og:title" content="DigitalDoor — We Build Your Digital Future">
+  <meta property="og:description"
+    content="Professional websites for Karachi boutiques, restaurants, salons & more. From Rs 15,000.">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80">
+  <meta name="theme-color" content="#0B1628">
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect fill='%230B1628' width='32' height='32'/><text x='16' y='22' text-anchor='middle' font-family='Georgia' font-size='18' font-weight='bold' fill='%23C9A84C'>D</text></svg>">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
+  <style>
+    :root {
+      --gold: #C9A84C;
+      --gold-light: #E8C97A;
+      --gold-pale: #F5E6C0;
+      --gold-dark: #8C6D28;
+      --navy: #0B1628;
+      --navy2: #0F1E38;
+      --navy3: #162540;
+      --navy4: #1C2E4E;
+      --white: #FFFFFF;
+      --off-white: #F8F6F2;
+      --cream: #F2EDE3;
+      --muted: #8A95A8;
+      --muted-dark: #4A5568;
+      --text: #1A2540;
+    }
 
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  html {
-    scroll-behavior: smooth;
-    overflow-x: hidden;
-    max-width: 100%;
-  }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-  body {
-    background: var(--white);
-    color: var(--text);
-    font-family: 'Outfit', sans-serif;
-    font-weight: 300;
-    overflow-x: hidden;
-    max-width: 100%;
-    position: relative;
-  }
+    html {
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+      max-width: 100%;
+    }
 
-  body::after {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
-    pointer-events: none;
-    z-index: 9999;
-  }
-  button{
-    cursor: pointer;
-    border-radius: 8px;
-  }
-  /* NAV */
-  nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 500;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1.4rem 5%;
-    background: rgba(255,255,255,0.94);
-    backdrop-filter: blur(24px);
-    border-bottom: 1px solid rgba(201,168,76,0.15);
-    transform: translateY(0);
-    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
-                padding 0.4s ease,
-                box-shadow 0.4s ease;
-    will-change: transform;
-  }
-  nav.nav-hidden {
-    transform: translateY(-100%);
-    pointer-events: none;
-  }
-  nav.scrolled {
-    padding: 1rem 5%;
-    box-shadow: 0 4px 32px rgba(11,22,40,0.08);
-  }
-  .logo {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.75rem;
-    font-weight: 700;
-    letter-spacing: -0.02em;
-    color: var(--navy);
-  }
-  .logo span {
-    color: var(--gold);
-    position: relative;
-  }
-  .logo span::after {
-    content: '';
-    position: absolute;
-    bottom: 2px; left: 0; right: 0;
-    height: 2px;
-    background: linear-gradient(90deg, var(--gold), var(--gold-light));
-  }
-  .nav-links { display: flex; gap: 2.5rem; list-style: none; align-items: center; }
-  .nav-links a {
-    color: var(--muted-dark);
-    text-decoration: none;
-    font-size: 0.85rem;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    font-weight: 500;
-    transition: color 0.3s;
-  }
-  .nav-links a:hover { color: var(--gold-dark); }
-  .nav-cta {
-    background: var(--navy) !important;
-    color: var(--gold-pale) !important;
-    padding: 0.65rem 1.6rem !important;
-    border-radius: 1px;
-    letter-spacing: 0.08em !important;
-    transition: all 0.3s !important;
-    position: relative;
-    overflow: hidden;
-  }
-  .nav-cta::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
-    opacity: 0;
-    transition: opacity 0.3s;
-  }
-  .nav-cta:hover::before { opacity: 1; }
-  .nav-cta:hover { color: var(--navy) !important; }
-  .nav-cta span { position: relative; z-index: 1; }
+    body {
+      background: var(--white);
+      color: var(--text);
+      font-family: 'Outfit', sans-serif;
+      font-weight: 300;
+      overflow-x: hidden;
+      max-width: 100%;
+      position: relative;
+    }
 
-  /* HERO */
-  .hero {
-    min-height: 100vh;
-    background: var(--navy);
-    display: flex;
-    align-items: center;
-    padding: 9rem 5% 5rem;
-    position: relative;
-    overflow: hidden;
-  }
-  .hero::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-image:
-      linear-gradient(rgba(201,168,76,0.05) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(201,168,76,0.05) 1px, transparent 1px);
-    background-size: 80px 80px;
-    mask-image: radial-gradient(ellipse 90% 90% at 50% 50%, black 0%, transparent 100%);
-  }
-  .hero-glow {
-    position: absolute;
-    width: 800px; height: 800px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(201,168,76,0.08) 0%, transparent 70%);
-    top: -200px; right: -200px;
-    pointer-events: none;
-  }
-  .hero-accent {
-    position: absolute;
-    top: 0; right: 30%;
-    width: 1px; height: 100%;
-    background: linear-gradient(180deg, transparent 0%, rgba(201,168,76,0.3) 30%, rgba(201,168,76,0.3) 70%, transparent 100%);
-    transform: rotate(15deg) translateX(200px);
-  }
-  .hero-layout {
-    display: grid;
-    grid-template-columns: 1fr 420px;
-    gap: 4rem;
-    align-items: center;
-    position: relative;
-    z-index: 2;
-    width: 100%;
-    max-width: 1300px;
-    min-width: 0;
-  }
-  .hero-left { min-width: 0; max-width: 100%; }
-  .hero-eyebrow {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.6rem;
-    font-size: 0.72rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--gold);
-    font-weight: 500;
-    margin-bottom: 1.8rem;
-    animation: fadeUp 0.8s ease both;
-  }
-  .pulse-dot {
-    width: 6px; height: 6px;
-    border-radius: 50%;
-    background: var(--gold);
-    animation: pulse 2s infinite;
-  }
-  @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.4;transform:scale(0.8)} }
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 9999;
+    }
 
-  h1 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(2.5rem, 10vw, 6.5rem);
-    line-height: 1.05;
-    font-weight: 700;
-    color: var(--white);
-    letter-spacing: -0.03em;
-    margin-bottom: 1.8rem;
-    animation: fadeUp 0.8s 0.1s ease both;
-    overflow-wrap: break-word;
-    word-break: break-word;
-  }
-  h1 em {
-    font-style: italic;
-    background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 50%, var(--gold-dark) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-  .hero-sub {
-    font-size: 1.05rem;
-    color: rgba(255,255,255,0.5);
-    line-height: 1.75;
-    max-width: 500px;
-    margin-bottom: 2.5rem;
-    font-weight: 300;
-    animation: fadeUp 0.8s 0.2s ease both;
-  }
-  .hero-actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    align-items: center;
-    animation: fadeUp 0.8s 0.3s ease both;
-  }
-  .btn-gold {
-    background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 50%, var(--gold-dark) 100%);
-    color: var(--navy);
-    padding: 0.95rem 2.4rem;
-    font-size: 0.9rem;
-    font-weight: 600;
-    letter-spacing: 0.06em;
-    text-decoration: none;
-    border-radius: 1px;
-    transition: all 0.3s;
-    box-shadow: 0 8px 32px rgba(201,168,76,0.3);
-  }
-  .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(201,168,76,0.4); }
-  .btn-ghost {
-    border: 1px solid rgba(201,168,76,0.3);
-    color: rgba(255,255,255,0.65);
-    padding: 0.95rem 2.4rem;
-    font-size: 0.9rem;
-    letter-spacing: 0.06em;
-    text-decoration: none;
-    border-radius: 1px;
-    transition: all 0.3s;
-  }
-  .btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
+    button {
+      cursor: pointer;
+      border-radius: 8px;
+    }
 
-  .hero-stats {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    gap: 1px;
-    background: rgba(201,168,76,0.1);
-    border: 1px solid rgba(201,168,76,0.1);
-    margin-top: 3.5rem;
-    animation: fadeUp 0.8s 0.4s ease both;
-  }
-  .stat-box {
-    background: rgba(11,22,40,0.7);
-    padding: 1.5rem;
-    backdrop-filter: blur(10px);
-  }
-  .stat-num {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 2.4rem;
-    font-weight: 700;
-    color: var(--gold);
-    line-height: 1;
-  }
-  .stat-label {
-    font-size: 0.7rem;
-    color: rgba(255,255,255,0.35);
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    margin-top: 0.3rem;
-  }
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 500;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.4rem 5%;
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(24px);
+      border-bottom: 1px solid rgba(201, 168, 76, 0.15);
+      transform: translateY(0);
+      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+        padding 0.4s ease,
+        box-shadow 0.4s ease;
+      will-change: transform;
+    }
 
-  .hero-panel { animation: fadeUp 0.8s 0.5s ease both; }
-  .hero-card {
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(201,168,76,0.15);
-    padding: 2rem;
-    border-radius: 2px;
-    backdrop-filter: blur(20px);
-    position: relative;
-    overflow: hidden;
-  }
-  .hero-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, var(--gold), transparent);
-  }
-  .hc-title {
-    font-size: 0.7rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--gold);
-    font-weight: 500;
-    margin-bottom: 1.5rem;
-  }
-  .hc-item {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    padding: 0.85rem 0;
-    border-bottom: 1px solid rgba(255,255,255,0.05);
-  }
-  .hc-item:last-of-type { border-bottom: none; }
-  .hc-icon {
-    width: 36px; height: 36px;
-    background: rgba(201,168,76,0.1);
-    border: 1px solid rgba(201,168,76,0.2);
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 1rem; flex-shrink: 0;
-  }
-  .hc-name { font-size: 0.88rem; color: var(--white); font-weight: 400; }
-  .hc-desc { font-size: 0.72rem; color: rgba(255,255,255,0.35); margin-top: 0.1rem; }
-  .hc-check {
-    margin-left: auto;
-    width: 20px; height: 20px;
-    background: rgba(201,168,76,0.12);
-    border: 1px solid rgba(201,168,76,0.3);
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    color: var(--gold);
-    font-size: 0.6rem;
-    flex-shrink: 0;
-  }
-  .hc-footer {
-    margin-top: 1.5rem;
-    padding: 1rem;
-    background: rgba(201,168,76,0.06);
-    border: 1px solid rgba(201,168,76,0.12);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  .hc-footer-txt { font-size: 0.75rem; color: rgba(255,255,255,0.4); }
-  .hc-footer-price { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 700; color: var(--gold); }
+    nav.nav-hidden {
+      transform: translateY(-100%);
+      pointer-events: none;
+    }
 
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(28px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
+    nav.scrolled {
+      padding: 1rem 5%;
+      box-shadow: 0 4px 32px rgba(11, 22, 40, 0.08);
+    }
 
-  /* MARQUEE */
-  .marquee-section {
-    padding: 1.1rem 0;
-    background: var(--cream);
-    border-top: 1px solid rgba(201,168,76,0.2);
-    border-bottom: 1px solid rgba(201,168,76,0.2);
-    overflow: hidden;
-    max-width: 100%;
-  }
-  .marquee-track {
-    display: flex;
-    animation: marquee 28s linear infinite;
-    width: max-content;
-  }
-  .marquee-item {
-    font-size: 0.68rem;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--muted-dark);
-    display: flex;
-    align-items: center;
-    padding: 0 2.5rem;
-    white-space: nowrap;
-    font-weight: 500;
-  }
-  .marquee-item::after {
-    content: '✦';
-    color: var(--gold);
-    font-size: 0.5rem;
-    margin-left: 2.5rem;
-  }
-  @keyframes marquee { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+    .logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.75rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--navy);
+    }
 
-  /* SECTIONS */
-  .section {
-    padding: 8rem 5%;
-    overflow-x: clip;
-    max-width: 100%;
-  }
-  .section.bg-off { background: var(--off-white); }
-  .section.bg-navy { background: var(--navy); }
-  .section.bg-cream { background: var(--cream); }
+    .logo span {
+      color: var(--gold);
+      position: relative;
+    }
 
-  .section-label {
-    font-size: 0.68rem;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    color: var(--gold-dark);
-    font-weight: 600;
-    margin-bottom: 0.8rem;
-    display: flex;
-    align-items: center;
-    gap: 0.8rem;
-  }
-  .section-label::before {
-    content: '';
-    display: block;
-    width: 28px; height: 1px;
-    background: var(--gold);
-  }
-  .section-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(2rem, 6vw, 3.8rem);
-    font-weight: 700;
-    line-height: 1.05;
-    color: var(--navy);
-    letter-spacing: -0.02em;
-    margin-bottom: 1rem;
-    overflow-wrap: break-word;
-    word-break: break-word;
-  }
-  .section-title.light { color: var(--white); }
-  .section-sub {
-    color: var(--muted-dark);
-    font-size: 1rem;
-    line-height: 1.75;
-    max-width: 480px;
-    margin-bottom: 4rem;
-    font-weight: 300;
-  }
-  .section-sub.light { color: rgba(255,255,255,0.45); }
+    .logo span::after {
+      content: '';
+      position: absolute;
+      bottom: 2px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--gold), var(--gold-light));
+    }
 
-  /* SERVICES */
-  .services-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1px;
-    background: rgba(201,168,76,0.1);
-    border: 1px solid rgba(201,168,76,0.1);
-  }
-  .service-card {
-    background: var(--white);
-    padding: 2.8rem 2.4rem;
-    position: relative;
-    overflow: hidden;
-    transition: background 0.4s;
-  }
-  .service-card::after {
-    content: '';
-    position: absolute;
-    bottom: 0; left: 0; right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, var(--gold-dark), var(--gold-light));
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.5s cubic-bezier(0.4,0,0.2,1);
-  }
-  .service-card:hover::after { transform: scaleX(1); }
-  .service-card:hover { background: var(--off-white); }
-  .service-num {
-    position: absolute;
-    top: 1.5rem; right: 1.8rem;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 5rem;
-    font-weight: 700;
-    color: rgba(201,168,76,0.07);
-    line-height: 1;
-    transition: color 0.4s;
-  }
-  .service-card:hover .service-num { color: rgba(201,168,76,0.13); }
-  .service-icon-wrap {
-    width: 52px; height: 52px;
-    border: 1px solid rgba(201,168,76,0.25);
-    display: flex; align-items: center; justify-content: center;
-    margin-bottom: 1.8rem;
-    position: relative;
-    background: var(--cream);
-  }
-  .service-icon-wrap svg,
-  .service-icon-wrap i { width: 22px; height: 22px; stroke: var(--gold-dark); }
-  .hc-icon svg { width: 18px; height: 18px; stroke: var(--gold); }
-  .service-icon-wrap::before {
-    content: '';
-    position: absolute;
-    top: -1px; right: -1px;
-    width: 10px; height: 10px;
-    background: var(--gold);
-  }
-  .service-card h3 {
-    font-size: 1.05rem;
-    font-weight: 600;
-    color: var(--navy);
-    margin-bottom: 0.7rem;
-  }
-  .service-card p { font-size: 0.87rem; color: var(--muted-dark); line-height: 1.75; }
-  .service-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    color: var(--gold-dark);
-    font-size: 0.78rem;
-    font-weight: 600;
-    margin-top: 1.5rem;
-    text-decoration: none;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    transition: gap 0.3s;
-  }
-  .service-link:hover { gap: 0.9rem; }
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+      align-items: center;
+    }
 
-  /* WHY */
-  .why-layout {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 6rem;
-    align-items: center;
-  }
-  .why-visual {
-    position: relative;
-    height: 480px;
-    overflow: hidden;
-    max-width: 100%;
-  }
-  .why-orb {
-    position: absolute;
-    top: 50%; left: 50%;
-    transform: translate(-50%, -50%);
-    width: 180px; height: 180px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(201,168,76,0.1) 0%, rgba(201,168,76,0.02) 70%, transparent 100%);
-    border: 1px solid rgba(201,168,76,0.18);
-    display: flex; align-items: center; justify-content: center;
-  }
-  .why-orb-inner {
-    width: 100px; height: 100px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, var(--navy2), var(--navy3));
-    border: 1px solid rgba(201,168,76,0.3);
-    display: flex; align-items: center; justify-content: center;
-  }
-  .why-orb-logo {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: var(--gold);
-  }
-  .why-float {
-    position: absolute;
-    background: var(--white);
-    border: 1px solid rgba(201,168,76,0.15);
-    padding: 1.2rem 1.5rem;
-    box-shadow: 0 8px 32px rgba(11,22,40,0.08);
-  }
-  .why-float.f1 { top: 0; left: 0; width: 180px; animation: wf1 5s ease-in-out infinite; }
-  .why-float.f2 { top: 40px; right: 0; width: 200px; animation: wf2 6s ease-in-out infinite; }
-  .why-float.f3 { bottom: 80px; left: 20px; width: 200px; animation: wf1 4.5s ease-in-out infinite; }
-  .why-float.f4 { bottom: 20px; right: 20px; width: 160px; animation: wf2 5.5s ease-in-out infinite; }
-  @keyframes wf1 { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
-  @keyframes wf2 { 0%,100%{transform:translateY(0)} 50%{transform:translateY(8px)} }
-  .wf-label { font-size: 0.63rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--muted); margin-bottom: 0.4rem; }
-  .wf-val { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-weight: 700; color: var(--gold-dark); line-height: 1; }
-  .wf-sub { font-size: 0.73rem; color: var(--muted-dark); margin-top: 0.2rem; }
-  .wf-bar { height: 3px; background: var(--cream); margin-top: 0.8rem; }
-  .wf-fill { height: 100%; background: linear-gradient(90deg, var(--gold-dark), var(--gold-light)); }
-  .wf-top { height: 2px; background: linear-gradient(90deg, var(--gold), var(--gold-light)); margin-bottom: 1rem; }
+    .nav-links a {
+      color: var(--muted-dark);
+      text-decoration: none;
+      font-size: 0.85rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
 
-  .why-points { display: flex; flex-direction: column; }
-  .why-point {
-    display: flex;
-    gap: 1.5rem;
-    align-items: flex-start;
-    padding: 1.8rem 0;
-    border-bottom: 1px solid rgba(201,168,76,0.1);
-    transition: padding-left 0.3s;
-  }
-  .why-point:first-child { border-top: 1px solid rgba(201,168,76,0.1); }
-  .why-point:hover { padding-left: 0.5rem; }
-  .why-num {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.3rem;
-    font-weight: 700;
-    color: var(--gold);
-    min-width: 28px;
-    padding-top: 0.05rem;
-  }
-  .why-point h4 { font-size: 1rem; font-weight: 600; color: var(--navy); margin-bottom: 0.4rem; }
-  .why-point p { font-size: 0.87rem; color: var(--muted-dark); line-height: 1.7; }
+    .nav-links a:hover {
+      color: var(--gold-dark);
+    }
 
-  /* PROCESS */
-  .process-layout { position: relative; }
-  .process-line {
-    position: absolute;
-    top: 28px;
-    left: calc(5% + 28px);
-    right: 5%;
-    height: 1px;
-    background: linear-gradient(90deg, var(--gold) 0%, rgba(201,168,76,0.1) 100%);
-  }
-  .process-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 2rem;
-    position: relative;
-    z-index: 1;
-  }
-  .step-num {
-    width: 56px; height: 56px;
-    background: var(--navy);
-    border: 2px solid var(--gold);
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: var(--gold);
-    margin-bottom: 2rem;
-    position: relative;
-    z-index: 2;
-    box-shadow: 0 0 0 6px rgba(201,168,76,0.07);
-  }
-  .process-step h4 { font-size: 1rem; font-weight: 600; color: var(--navy); margin-bottom: 0.6rem; }
-  .process-step p { font-size: 0.85rem; color: var(--muted-dark); line-height: 1.7; }
-  .process-tag {
-    display: inline-block;
-    font-size: 0.63rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--gold-dark);
-    background: rgba(201,168,76,0.08);
-    border: 1px solid rgba(201,168,76,0.15);
-    padding: 0.2rem 0.6rem;
-    margin-top: 0.8rem;
-  }
+    .nav-cta {
+      background: var(--navy) !important;
+      color: var(--gold-pale) !important;
+      padding: 0.65rem 1.6rem !important;
+      border-radius: 1px;
+      letter-spacing: 0.08em !important;
+      transition: all 0.3s !important;
+      position: relative;
+      overflow: hidden;
+    }
 
-  /* TEAM */
-  .team-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2px;
-    background: rgba(201,168,76,0.08);
-  }
-  .team-card {
-    background: var(--navy2);
-    padding: 2.8rem 2.4rem;
-    text-align: center;
-    transition: background 0.4s;
-    position: relative;
-    overflow: hidden;
-  }
-  .team-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 50%;
-    transform: translateX(-50%);
-    width: 0; height: 2px;
-    background: linear-gradient(90deg, var(--gold-dark), var(--gold-light));
-    transition: width 0.5s;
-  }
-  .team-card:hover::before { width: 100%; }
-  .team-card:hover { background: var(--navy3); }
-  .team-avatar {
-    width: 90px; height: 90px;
-    border-radius: 50%;
-    margin: 0 auto 1.8rem;
-    overflow: hidden;
-    border: 2px solid rgba(201,168,76,0.35);
-    box-shadow: 0 0 0 6px rgba(201,168,76,0.07), 0 8px 24px rgba(0,0,0,0.3);
-    background: linear-gradient(145deg, rgba(201,168,76,0.12), rgba(11,22,40,0.4));
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .team-avatar img {
-    width: 82%;
-    height: 82%;
-    object-fit: contain;
-    display: block;
-  }
-  .team-card h3 { font-size: 1.1rem; font-weight: 600; color: var(--white); margin-bottom: 0.3rem; }
-  .team-role {
-    font-size: 0.68rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--gold);
-    font-weight: 500;
-    margin-bottom: 1.2rem;
-  }
-  .team-card p { font-size: 0.85rem; color: rgba(255,255,255,0.42); line-height: 1.7; }
-  .team-skills { display: flex; gap: 0.4rem; flex-wrap: wrap; justify-content: center; margin-top: 1.5rem; }
-  .skill-tag {
-    font-size: 0.63rem;
-    letter-spacing: 0.08em;
-    background: rgba(201,168,76,0.08);
-    border: 1px solid rgba(201,168,76,0.18);
-    color: var(--gold);
-    padding: 0.25rem 0.65rem;
-  }
+    .nav-cta::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
 
-  /* PRICING */
-  .pricing-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2px;
-    background: rgba(201,168,76,0.08);
-  }
-  .pricing-card {
-    background: var(--white);
-    padding: 3rem 2.5rem;
-    position: relative;
-    overflow: hidden;
-    transition: background 0.3s;
-  }
-  .pricing-card.featured { background: var(--navy); }
-  .pricing-ribbon {
-    position: absolute;
-    top: 1.6rem; right: -2.5rem;
-    background: linear-gradient(135deg, var(--gold-light), var(--gold));
-    color: var(--navy);
-    font-size: 0.58rem;
-    font-weight: 700;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    padding: 0.3rem 3rem;
-    transform: rotate(45deg);
-  }
-  .pricing-top-bar {
-    height: 3px;
-    background: linear-gradient(90deg, var(--gold-dark), var(--gold-light));
-    margin: -3rem -2.5rem 2.5rem;
-    opacity: 0;
-    transition: opacity 0.3s;
-  }
-  .pricing-card:hover .pricing-top-bar,
-  .pricing-card.featured .pricing-top-bar { opacity: 1; }
-  .pricing-plan {
-    font-size: 0.68rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--gold-dark);
-    font-weight: 600;
-    margin-bottom: 1.2rem;
-  }
-  .pricing-card.featured .pricing-plan { color: var(--gold); }
-  .pricing-price {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 3rem;
-    font-weight: 700;
-    color: var(--navy);
-    line-height: 1;
-    margin-bottom: 0.3rem;
-    letter-spacing: -0.02em;
-  }
-  .pricing-card.featured .pricing-price { color: var(--white); }
-  .pricing-price sup { font-size: 1.2rem; vertical-align: top; margin-top: 0.4rem; }
-  .pricing-period { font-size: 0.75rem; color: var(--muted); margin-bottom: 2rem; }
-  .pricing-card.featured .pricing-period { color: rgba(255,255,255,0.35); }
-  .pricing-divider { height: 1px; background: rgba(201,168,76,0.12); margin-bottom: 1.8rem; }
-  .pricing-features { list-style: none; margin-bottom: 2.5rem; }
-  .pricing-features li {
-    font-size: 0.87rem;
-    color: var(--muted-dark);
-    padding: 0.6rem 0;
-    border-bottom: 1px solid rgba(201,168,76,0.06);
-    display: flex;
-    align-items: center;
-    gap: 0.8rem;
-  }
-  .pricing-card.featured .pricing-features li { color: rgba(255,255,255,0.55); border-color: rgba(255,255,255,0.05); }
-  .pricing-check {
-    width: 18px; height: 18px;
-    background: rgba(201,168,76,0.12);
-    border: 1px solid rgba(201,168,76,0.25);
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 0.58rem;
-    color: var(--gold-dark);
-    flex-shrink: 0;
-  }
-  .pricing-features li.na .pricing-check { background: rgba(0,0,0,0.04); border-color: rgba(0,0,0,0.08); color: var(--muted); }
-  .pricing-features li.na { opacity: 0.5; }
-  .btn-navy {
-    display: block;
-    text-align: center;
-    padding: 0.9rem;
-    background: var(--navy);
-    color: var(--gold-pale);
-    font-size: 0.82rem;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    text-decoration: none;
-    border-radius: 1px;
-    transition: all 0.3s;
-    border: 1px solid var(--navy);
-  }
-  .btn-navy:hover { background: var(--gold); color: var(--navy); border-color: var(--gold); }
-  .btn-gold-outline {
-    display: block;
-    text-align: center;
-    padding: 0.9rem;
-    border: 1px solid rgba(201,168,76,0.4);
-    color: var(--gold);
-    font-size: 0.82rem;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    text-decoration: none;
-    border-radius: 1px;
-    transition: all 0.3s;
-  }
-  .btn-gold-outline:hover { background: var(--gold); color: var(--navy); }
+    .nav-cta:hover::before {
+      opacity: 1;
+    }
 
-  /* ── CONTACT SECTION ── */
-  .cta-section {
-    background: var(--navy);
-    padding: 8rem 5%;
-    position: relative;
-    overflow: hidden;
-  }
-  .cta-section::before {
-    content: '';
-    position: absolute;
-    top: -200px; right: -200px;
-    width: 600px; height: 600px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(201,168,76,0.07) 0%, transparent 70%);
-    pointer-events: none;
-  }
-  .cta-section::after {
-    content: '';
-    position: absolute;
-    bottom: -150px; left: -150px;
-    width: 400px; height: 400px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(201,168,76,0.04) 0%, transparent 70%);
-    pointer-events: none;
-  }
-  .contact-inner {
-    position: relative;
-    z-index: 2;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 6rem;
-    align-items: start;
-    max-width: 1100px;
-    margin: 0 auto;
-  }
-  .contact-left {}
-  .contact-desc {
-    color: rgba(255,255,255,0.42);
-    font-size: 1rem;
-    line-height: 1.75;
-    max-width: 400px;
-    margin-bottom: 2.5rem;
-  }
-  .contact-whatsapp {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.7rem;
-    background: #25D366;
-    color: white;
-    padding: 0.85rem 1.8rem;
-    font-size: 0.85rem;
-    font-weight: 600;
-    letter-spacing: 0.05em;
-    text-decoration: none;
-    border-radius: 1px;
-    transition: all 0.3s;
-  }
-  .contact-whatsapp:hover {
-    background: #1fba58;
-    transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(37,211,102,0.3);
-  }
+    .nav-cta:hover {
+      color: var(--navy) !important;
+    }
 
-  /* FORM */
-  .contact-form-wrap {
-    background: rgba(255,255,255,0.03);
-    border: 1px solid rgba(201,168,76,0.15);
-    padding: 2.5rem;
-    position: relative;
-  }
-  .contact-form-wrap::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, var(--gold), transparent);
-  }
-  .form-heading {
-    font-size: 0.68rem;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--gold);
-    font-weight: 500;
-    margin-bottom: 2rem;
-  }
-  .contact-form { display: flex; flex-direction: column; gap: 1.2rem; }
-  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
-  .form-group { display: flex; flex-direction: column; gap: 0.5rem; }
-  .form-group label {
-    font-size: 0.7rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.45);
-    font-weight: 500;
-  }
-  .form-group input,
-  .form-group textarea {
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(201,168,76,0.18);
-    color: var(--white);
-    font-family: 'Outfit', sans-serif;
-    font-size: 0.9rem;
-    font-weight: 300;
-    padding: 0.85rem 1rem;
-    border-radius: 1px;
-    outline: none;
-    transition: border-color 0.3s, background 0.3s;
-    width: 100%;
-  }
-  .form-group input::placeholder,
-  .form-group textarea::placeholder {
-    color: rgba(255,255,255,0.2);
-  }
-  .form-group input:focus,
-  .form-group textarea:focus {
-    border-color: rgba(201,168,76,0.5);
-    background: rgba(255,255,255,0.06);
-  }
-  .form-group input.error-input,
-  .form-group textarea.error-input {
-    border-color: rgba(220, 80, 80, 0.6);
-    background: rgba(220, 80, 80, 0.04);
-  }
-  .form-group textarea {
-    resize: vertical;
-    min-height: 110px;
-    line-height: 1.6;
-  }
-  .error-msg {
-    font-size: 0.72rem;
-    color: #e88080;
-    letter-spacing: 0.04em;
-    display: flex;
-    align-items: center;
-    gap: 0.35rem;
-  }
-  .error-msg::before { content: '⚠'; font-size: 0.65rem; }
-  .form-submit-btn {
-    background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 50%, var(--gold-dark) 100%);
-    color: var(--navy);
-    border: none;
-    padding: 1rem 2rem;
-    font-family: 'Outfit', sans-serif;
-    font-size: 0.85rem;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    border-radius: 1px;
-    cursor: pointer;
-    transition: all 0.3s;
-    box-shadow: 0 4px 20px rgba(201,168,76,0.25);
-    align-self: flex-start;
-    position: relative;
-    overflow: hidden;
-  }
-  .form-submit-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 32px rgba(201,168,76,0.4);
-  }
-  .form-submit-btn:active { transform: translateY(0); }
-  .form-submit-btn:disabled {
-    opacity: 0.65;
-    cursor: not-allowed;
-    transform: none;
-  }
-  .form-error-banner {
-    display: none;
-    align-items: center;
-    gap: 0.8rem;
-    background: rgba(220, 80, 80, 0.08);
-    border: 1px solid rgba(220, 80, 80, 0.25);
-    padding: 1rem 1.2rem;
-    margin-top: 0.5rem;
-  }
-  .form-error-banner.visible { display: flex; }
-  .form-error-banner p {
-    font-size: 0.85rem;
-    color: rgba(255,255,255,0.6);
-    line-height: 1.5;
-  }
-  .form-success {
-    display: none;
-    align-items: center;
-    gap: 0.8rem;
-    background: rgba(37,211,102,0.08);
-    border: 1px solid rgba(37,211,102,0.25);
-    padding: 1rem 1.2rem;
-    margin-top: 0.5rem;
-  }
-  .form-success.visible { display: flex; }
-  .form-success-icon {
-    width: 28px; height: 28px;
-    background: rgba(37,211,102,0.15);
-    border: 1px solid rgba(37,211,102,0.3);
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    color: #25D366;
-    font-size: 0.8rem;
-    flex-shrink: 0;
-  }
-  .form-success p {
-    font-size: 0.85rem;
-    color: rgba(255,255,255,0.6);
-    line-height: 1.5;
-  }
-  .form-success strong { color: #25D366; font-weight: 500; }
+    .nav-cta span {
+      position: relative;
+      z-index: 1;
+    }
 
-  /* FOOTER */
-  footer {
-    background: var(--navy2);
-    border-top: 1px solid rgba(201,168,76,0.1);
-    padding: 3rem 5%;
-  }
-  .footer-inner {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 1.5rem;
-  }
-  .footer-logo {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--white);
-  }
-  .footer-logo span { color: var(--gold); }
-  .footer-copy { font-size: 0.78rem; color: rgba(255,255,255,0.28); margin-top: 0.3rem; }
-  .footer-links { display: flex; gap: 2.5rem; }
-  .footer-links a {
-    font-size: 0.76rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.32);
-    text-decoration: none;
-    transition: color 0.3s;
-    font-weight: 500;
-  }
-  .footer-links a:hover { color: var(--gold); }
-  .footer-tagline {
-    text-align: center;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 0.88rem;
-    font-style: italic;
-    color: rgba(255,255,255,0.18);
-    letter-spacing: 0.1em;
-    margin-top: 2rem;
-    padding-top: 2rem;
-    border-top: 1px solid rgba(201,168,76,0.07);
-  }
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      background: var(--navy);
+      display: flex;
+      align-items: center;
+      padding: 9rem 5% 5rem;
+      position: relative;
+      overflow: hidden;
+    }
 
-  /* MOBILE NAV */
-  .nav-toggle {
-    display: none;
-    width: 44px; height: 44px;
-    border: 1px solid rgba(201,168,76,0.25);
-    background: transparent;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    padding: 0;
-  }
-  .nav-toggle span {
-    display: block;
-    width: 20px; height: 1.5px;
-    background: var(--navy);
-    margin: 4px auto;
-    transition: transform 0.3s, opacity 0.3s;
-  }
-  body.nav-open .nav-toggle span:nth-child(1) { transform: translateY(5.5px) rotate(45deg); }
-  body.nav-open .nav-toggle span:nth-child(2) { opacity: 0; }
-  body.nav-open .nav-toggle span:nth-child(3) { transform: translateY(-5.5px) rotate(-45deg); }
-  .mobile-nav {
-    position: fixed;
-    inset: 0;
-    z-index: 499;
-    background: rgba(11,22,40,0.97);
-    backdrop-filter: blur(20px);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 2rem;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.35s, visibility 0.35s;
-  }
-  body.nav-open .mobile-nav { opacity: 1; visibility: visible; }
-  .mobile-nav a {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 2rem;
-    color: var(--white);
-    text-decoration: none;
-    letter-spacing: 0.02em;
-    transition: color 0.3s;
-  }
-  .mobile-nav a:hover { color: var(--gold); }
-  .mobile-nav .nav-cta-mobile {
-    margin-top: 1rem;
-    background: linear-gradient(135deg, var(--gold-light), var(--gold));
-    color: var(--navy);
-    padding: 0.9rem 2rem;
-    font-family: 'Outfit', sans-serif;
-    font-size: 0.85rem;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-  }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(201, 168, 76, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(201, 168, 76, 0.05) 1px, transparent 1px);
+      background-size: 80px 80px;
+      mask-image: radial-gradient(ellipse 90% 90% at 50% 50%, black 0%, transparent 100%);
+    }
 
-  /* HERO BROWSER CAROUSEL */
-  .browser-mockup {
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(201,168,76,0.2);
-    border-radius: 4px;
-    overflow: hidden;
-    box-shadow: 0 24px 64px rgba(0,0,0,0.35);
-  }
-  .browser-bar {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.75rem 1rem;
-    background: rgba(0,0,0,0.25);
-    border-bottom: 1px solid rgba(201,168,76,0.1);
-  }
-  .browser-dot { width: 8px; height: 8px; border-radius: 50%; }
-  .browser-dot:nth-child(1) { background: #ff5f57; }
-  .browser-dot:nth-child(2) { background: #febc2e; }
-  .browser-dot:nth-child(3) { background: #28c840; }
-  .browser-url {
-    flex: 1;
-    margin-left: 0.5rem;
-    font-size: 0.65rem;
-    color: rgba(255,255,255,0.35);
-    letter-spacing: 0.04em;
-    text-align: center;
-    padding: 0.35rem 0.8rem;
-    background: rgba(255,255,255,0.05);
-    border-radius: 2px;
-  }
-  .browser-carousel { position: relative; aspect-ratio: 16/10; overflow: hidden; }
-  .carousel-slide {
-    position: absolute;
-    inset: 0;
-    opacity: 0;
-    transition: opacity 0.8s ease;
-  }
-  .carousel-slide.active { opacity: 1; z-index: 1; }
-  .carousel-slide img { width: 100%; height: 100%; object-fit: cover; }
-  .carousel-caption {
-    position: absolute;
-    bottom: 0; left: 0; right: 0;
-    padding: 1.2rem 1rem;
-    background: linear-gradient(transparent, rgba(11,22,40,0.92));
-  }
-  .carousel-caption strong { display: block; font-size: 0.85rem; color: var(--white); margin-bottom: 0.15rem; }
-  .carousel-caption span { font-size: 0.7rem; color: var(--gold); letter-spacing: 0.06em; text-transform: uppercase; }
-  .carousel-dots {
-    display: flex;
-    justify-content: center;
-    gap: 0.4rem;
-    padding: 0.75rem;
-    background: rgba(0,0,0,0.2);
-  }
-  .carousel-dot {
-    width: 6px; height: 6px;
-    border-radius: 50%;
-    border: none;
-    background: rgba(201,168,76,0.25);
-    cursor: pointer;
-    padding: 0;
-    transition: background 0.3s, transform 0.3s;
-  }
-  .carousel-dot.active { background: var(--gold); transform: scale(1.2); }
+    .hero-glow {
+      position: absolute;
+      width: 800px;
+      height: 800px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(201, 168, 76, 0.08) 0%, transparent 70%);
+      top: -200px;
+      right: -200px;
+      pointer-events: none;
+    }
 
-  .hero-mobile-strip {
-    display: none;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 0.5rem;
-    margin-top: 2rem;
-    animation: fadeUp 0.8s 0.45s ease both;
-  }
-  .hms-item {
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(201,168,76,0.15);
-    padding: 0.85rem 0.5rem;
-    text-align: center;
-  }
-  .hms-item svg { width: 18px; height: 18px; stroke: var(--gold); margin: 0 auto 0.4rem; display: block; }
-  .hms-item span { font-size: 0.62rem; color: rgba(255,255,255,0.5); letter-spacing: 0.06em; text-transform: uppercase; }
+    .hero-accent {
+      position: absolute;
+      top: 0;
+      right: 30%;
+      width: 1px;
+      height: 100%;
+      background: linear-gradient(180deg, transparent 0%, rgba(201, 168, 76, 0.3) 30%, rgba(201, 168, 76, 0.3) 70%, transparent 100%);
+      transform: rotate(15deg) translateX(200px);
+    }
 
-  /* LOGOS STRIP */
-  .logos-section {
-    padding: 2.5rem 5%;
-    background: var(--white);
-    border-bottom: 1px solid rgba(201,168,76,0.12);
-    overflow-x: clip;
-    max-width: 100%;
-  }
-  .logos-label {
-    text-align: center;
-    font-size: 0.65rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--muted);
-    margin-bottom: 1.5rem;
-    font-weight: 500;
-  }
-  .logos-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 2rem 3rem;
-    max-width: 900px;
-    margin: 0 auto;
-  }
-  .logo-pill {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: rgba(26,37,64,0.35);
-    letter-spacing: 0.02em;
-    transition: color 0.3s;
-  }
-  .logo-pill:hover { color: var(--gold-dark); }
+    .hero-layout {
+      display: grid;
+      grid-template-columns: 1fr 420px;
+      gap: 4rem;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      max-width: 1300px;
+      min-width: 0;
+    }
 
-  /* PORTFOLIO */
-  .portfolio-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-  }
-  .portfolio-card {
-    position: relative;
-    overflow: hidden;
-    background: var(--navy);
-    border: 1px solid rgba(201,168,76,0.12);
-    transition: transform 0.4s, box-shadow 0.4s;
-  }
-  .portfolio-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 16px 48px rgba(11,22,40,0.15);
-  }
-  .portfolio-img { aspect-ratio: 16/10; overflow: hidden; }
-  .portfolio-img img {
-    width: 100%; height: 100%;
-    object-fit: cover;
-    transition: transform 0.6s ease;
-  }
-  .portfolio-card:hover .portfolio-img img { transform: scale(1.05); }
-  .portfolio-body { padding: 1.4rem 1.5rem; }
-  .portfolio-tag {
-    font-size: 0.62rem;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--gold-dark);
-    font-weight: 600;
-    margin-bottom: 0.4rem;
-  }
-  .portfolio-body h3 { font-size: 1rem; font-weight: 600; color: var(--navy); margin-bottom: 0.35rem; }
-  .portfolio-body p { font-size: 0.82rem; color: var(--muted-dark); line-height: 1.6; }
-  .portfolio-result {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.35rem;
-    margin-top: 0.75rem;
-    font-size: 0.72rem;
-    color: var(--gold-dark);
-    font-weight: 500;
-  }
-  .portfolio-result svg { width: 14px; height: 14px; stroke: var(--gold); }
+    .hero-left {
+      min-width: 0;
+      max-width: 100%;
+    }
 
-  /* WHATSAPP MOCKUP */
-  .why-wa-mockup {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 200px;
-    background: #fff;
-    border-radius: 12px;
-    box-shadow: 0 12px 40px rgba(11,22,40,0.12);
-    border: 1px solid rgba(201,168,76,0.15);
-    overflow: hidden;
-    animation: wf2 5s ease-in-out infinite;
-    z-index: 2;
-  }
-  .wa-header {
-    background: #075E54;
-    color: #fff;
-    padding: 0.65rem 0.8rem;
-    font-size: 0.72rem;
-    font-weight: 500;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
-  .wa-header-dot { width: 8px; height: 8px; background: #25D366; border-radius: 50%; }
-  .wa-body { padding: 0.8rem; background: #ECE5DD; min-height: 100px; }
-  .wa-bubble {
-    background: #fff;
-    padding: 0.5rem 0.65rem;
-    border-radius: 0 8px 8px 8px;
-    font-size: 0.68rem;
-    color: #333;
-    line-height: 1.45;
-    max-width: 90%;
-    box-shadow: 0 1px 2px rgba(0,0,0,0.08);
-    margin-bottom: 0.4rem;
-  }
-  .wa-bubble.out {
-    background: #DCF8C6;
-    margin-left: auto;
-    border-radius: 8px 0 8px 8px;
-  }
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 500;
+      margin-bottom: 1.8rem;
+      animation: fadeUp 0.8s ease both;
+    }
 
-  /* TESTIMONIALS */
-  .testimonials-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-  }
-  .testimonial-card {
-    background: var(--white);
-    border: 1px solid rgba(201,168,76,0.15);
-    padding: 2rem;
-    position: relative;
-    transition: box-shadow 0.3s, transform 0.3s;
-  }
-  .testimonial-card:hover {
-    box-shadow: 0 12px 40px rgba(11,22,40,0.08);
-    transform: translateY(-2px);
-  }
-  .testimonial-stars { color: var(--gold); font-size: 0.85rem; letter-spacing: 0.15em; margin-bottom: 1rem; }
-  .testimonial-quote {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.15rem;
-    font-style: italic;
-    color: var(--navy);
-    line-height: 1.55;
-    margin-bottom: 1.5rem;
-  }
-  .testimonial-author { display: flex; align-items: center; gap: 0.85rem; }
-  .testimonial-avatar {
-    width: 44px; height: 44px;
-    min-width: 44px;
-    border-radius: 50%;
-    border: 2px solid rgba(201,168,76,0.35);
-    background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 50%, var(--gold-dark) 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.15rem;
-    font-weight: 700;
-    color: var(--navy);
-    flex-shrink: 0;
-  }
-  .testimonial-name { font-size: 0.88rem; font-weight: 600; color: var(--navy); }
-  .testimonial-role { font-size: 0.72rem; color: var(--muted); margin-top: 0.1rem; }
+    .pulse-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--gold);
+      animation: pulse 2s infinite;
+    }
 
-  /* PRICING BADGE */
-  .pricing-badge {
-    display: inline-block;
-    font-size: 0.62rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--gold-dark);
-    background: rgba(201,168,76,0.1);
-    border: 1px solid rgba(201,168,76,0.2);
-    padding: 0.25rem 0.6rem;
-    margin-bottom: 0.8rem;
-  }
-  .pricing-card.featured .pricing-badge { color: var(--gold); border-color: rgba(201,168,76,0.35); background: rgba(201,168,76,0.12); }
+    @keyframes pulse {
 
-  /* FAQ */
-  .faq-list { max-width: 720px; margin: 0 auto; }
-  .faq-item {
-    border-bottom: 1px solid rgba(201,168,76,0.15);
-  }
-  .faq-item summary {
-    list-style: none;
-    cursor: pointer;
-    padding: 1.4rem 0;
-    font-size: 1rem;
-    font-weight: 500;
-    color: var(--navy);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 1rem;
-    transition: color 0.3s;
-  }
-  .faq-item summary::-webkit-details-marker { display: none; }
-  .faq-item summary::after {
-    content: '+';
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.5rem;
-    color: var(--gold);
-    flex-shrink: 0;
-    transition: transform 0.3s;
-  }
-  .faq-item[open] summary::after { transform: rotate(45deg); }
-  .faq-item summary:hover { color: var(--gold-dark); }
-  .faq-answer {
-    padding: 0 0 1.4rem;
-    font-size: 0.9rem;
-    color: var(--muted-dark);
-    line-height: 1.75;
-  }
+      0%,
+      100% {
+        opacity: 1;
+        transform: scale(1)
+      }
 
-  /* STICKY MOBILE CTA */
-  .sticky-mobile-cta {
-    display: none;
-    position: fixed;
-    bottom: 0; left: 0; right: 0;
-    z-index: 100000;
-    padding: 0.65rem 1rem;
-    padding-bottom: max(0.65rem, env(safe-area-inset-bottom));
-    background: rgba(11,22,40,0.96);
-    backdrop-filter: blur(12px);
-    border-top: 1px solid rgba(201,168,76,0.2);
-    gap: 0.5rem;
-    grid-template-columns: 1fr 1fr;
-  }
-  .sticky-mobile-cta a {
-    text-align: center;
-    padding: 0.75rem;
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    text-decoration: none;
-    border-radius: 1px;
-  }
-  .sticky-cta-form {
-    background: linear-gradient(135deg, var(--gold-light), var(--gold));
-    color: var(--navy);
-  }
-  .sticky-cta-wa {
-    background: #25D366;
-    color: #fff;
-  }
+      50% {
+        opacity: 0.4;
+        transform: scale(0.8)
+      }
+    }
 
-  .stat-num.counting { transition: none; }
+    h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.5rem, 10vw, 6.5rem);
+      line-height: 1.05;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: -0.03em;
+      margin-bottom: 1.8rem;
+      animation: fadeUp 0.8s 0.1s ease both;
+      overflow-wrap: break-word;
+      word-break: break-word;
+    }
 
-  /* SCROLL REVEAL */
-  .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.8s ease, transform 0.8s ease; }
-  .reveal.visible { opacity: 1; transform: none; }
-  .reveal-d1 { transition-delay: 0.1s; }
-  .reveal-d2 { transition-delay: 0.2s; }
-  .reveal-d3 { transition-delay: 0.3s; }
+    h1 em {
+      font-style: italic;
+      background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 50%, var(--gold-dark) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
 
-  /* WHATSAPP FLOAT */
-  .whatsapp-float {
-    position: fixed;
-    bottom: 1.75rem;
-    right: 1.75rem;
-    z-index: 100001;
-    width: 3.5rem;
-    height: 3.5rem;
-    min-width: 3.5rem;
-    min-height: 3.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #25D366;
-    color: #fff;
-    border-radius: 50%;
-    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.45);
-    text-decoration: none;
-    transition: transform 0.3s, background 0.3s, box-shadow 0.3s;
-    -webkit-tap-highlight-color: transparent;
-    touch-action: manipulation;
-    pointer-events: auto;
-  }
-  @media (hover: hover) {
-    .whatsapp-float:hover {
+    .hero-sub {
+      font-size: 1.05rem;
+      color: rgba(255, 255, 255, 0.5);
+      line-height: 1.75;
+      max-width: 500px;
+      margin-bottom: 2.5rem;
+      font-weight: 300;
+      animation: fadeUp 0.8s 0.2s ease both;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      align-items: center;
+      animation: fadeUp 0.8s 0.3s ease both;
+    }
+
+    .btn-gold {
+      background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 50%, var(--gold-dark) 100%);
+      color: var(--navy);
+      padding: 0.95rem 2.4rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-decoration: none;
+      border-radius: 1px;
+      transition: all 0.3s;
+      box-shadow: 0 8px 32px rgba(201, 168, 76, 0.3);
+    }
+
+    .btn-gold:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 40px rgba(201, 168, 76, 0.4);
+    }
+
+    .btn-ghost {
+      border: 1px solid rgba(201, 168, 76, 0.3);
+      color: rgba(255, 255, 255, 0.65);
+      padding: 0.95rem 2.4rem;
+      font-size: 0.9rem;
+      letter-spacing: 0.06em;
+      text-decoration: none;
+      border-radius: 1px;
+      transition: all 0.3s;
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      gap: 1px;
+      background: rgba(201, 168, 76, 0.1);
+      border: 1px solid rgba(201, 168, 76, 0.1);
+      margin-top: 3.5rem;
+      animation: fadeUp 0.8s 0.4s ease both;
+    }
+
+    .stat-box {
+      background: rgba(11, 22, 40, 0.7);
+      padding: 1.5rem;
+      backdrop-filter: blur(10px);
+    }
+
+    .stat-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 0.7rem;
+      color: rgba(255, 255, 255, 0.35);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-top: 0.3rem;
+    }
+
+    .hero-panel {
+      animation: fadeUp 0.8s 0.5s ease both;
+    }
+
+    .hero-card {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(201, 168, 76, 0.15);
+      padding: 2rem;
+      border-radius: 2px;
+      backdrop-filter: blur(20px);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+
+    .hc-title {
+      font-size: 0.7rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 500;
+      margin-bottom: 1.5rem;
+    }
+
+    .hc-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 0.85rem 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .hc-item:last-of-type {
+      border-bottom: none;
+    }
+
+    .hc-icon {
+      width: 36px;
+      height: 36px;
+      background: rgba(201, 168, 76, 0.1);
+      border: 1px solid rgba(201, 168, 76, 0.2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+
+    .hc-name {
+      font-size: 0.88rem;
+      color: var(--white);
+      font-weight: 400;
+    }
+
+    .hc-desc {
+      font-size: 0.72rem;
+      color: rgba(255, 255, 255, 0.35);
+      margin-top: 0.1rem;
+    }
+
+    .hc-check {
+      margin-left: auto;
+      width: 20px;
+      height: 20px;
+      background: rgba(201, 168, 76, 0.12);
+      border: 1px solid rgba(201, 168, 76, 0.3);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold);
+      font-size: 0.6rem;
+      flex-shrink: 0;
+    }
+
+    .hc-footer {
+      margin-top: 1.5rem;
+      padding: 1rem;
+      background: rgba(201, 168, 76, 0.06);
+      border: 1px solid rgba(201, 168, 76, 0.12);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .hc-footer-txt {
+      font-size: 0.75rem;
+      color: rgba(255, 255, 255, 0.4);
+    }
+
+    .hc-footer-price {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--gold);
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(28px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* MARQUEE */
+    .marquee-section {
+      padding: 1.1rem 0;
+      background: var(--cream);
+      border-top: 1px solid rgba(201, 168, 76, 0.2);
+      border-bottom: 1px solid rgba(201, 168, 76, 0.2);
+      overflow: hidden;
+      max-width: 100%;
+    }
+
+    .marquee-track {
+      display: flex;
+      animation: marquee 28s linear infinite;
+      width: max-content;
+    }
+
+    .marquee-item {
+      font-size: 0.68rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--muted-dark);
+      display: flex;
+      align-items: center;
+      padding: 0 2.5rem;
+      white-space: nowrap;
+      font-weight: 500;
+    }
+
+    .marquee-item::after {
+      content: '✦';
+      color: var(--gold);
+      font-size: 0.5rem;
+      margin-left: 2.5rem;
+    }
+
+    @keyframes marquee {
+      from {
+        transform: translateX(0)
+      }
+
+      to {
+        transform: translateX(-50%)
+      }
+    }
+
+    /* SECTIONS */
+    .section {
+      padding: 8rem 5%;
+      overflow-x: clip;
+      max-width: 100%;
+    }
+
+    .section.bg-off {
+      background: var(--off-white);
+    }
+
+    .section.bg-navy {
+      background: var(--navy);
+    }
+
+    .section.bg-cream {
+      background: var(--cream);
+    }
+
+    .section-label {
+      font-size: 0.68rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold-dark);
+      font-weight: 600;
+      margin-bottom: 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .section-label::before {
+      content: '';
+      display: block;
+      width: 28px;
+      height: 1px;
+      background: var(--gold);
+    }
+
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 6vw, 3.8rem);
+      font-weight: 700;
+      line-height: 1.05;
+      color: var(--navy);
+      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+      overflow-wrap: break-word;
+      word-break: break-word;
+    }
+
+    .section-title.light {
+      color: var(--white);
+    }
+
+    .section-sub {
+      color: var(--muted-dark);
+      font-size: 1rem;
+      line-height: 1.75;
+      max-width: 480px;
+      margin-bottom: 4rem;
+      font-weight: 300;
+    }
+
+    .section-sub.light {
+      color: rgba(255, 255, 255, 0.45);
+    }
+
+    /* SERVICES */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: rgba(201, 168, 76, 0.1);
+      border: 1px solid rgba(201, 168, 76, 0.1);
+    }
+
+    .service-card {
+      background: var(--white);
+      padding: 2.8rem 2.4rem;
+      position: relative;
+      overflow: hidden;
+      transition: background 0.4s;
+    }
+
+    .service-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--gold-dark), var(--gold-light));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .service-card:hover::after {
+      transform: scaleX(1);
+    }
+
+    .service-card:hover {
+      background: var(--off-white);
+    }
+
+    .service-num {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.8rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 5rem;
+      font-weight: 700;
+      color: rgba(201, 168, 76, 0.07);
+      line-height: 1;
+      transition: color 0.4s;
+    }
+
+    .service-card:hover .service-num {
+      color: rgba(201, 168, 76, 0.13);
+    }
+
+    .service-icon-wrap {
+      width: 52px;
+      height: 52px;
+      border: 1px solid rgba(201, 168, 76, 0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.8rem;
+      position: relative;
+      background: var(--cream);
+    }
+
+    .service-icon-wrap svg,
+    .service-icon-wrap i {
+      width: 22px;
+      height: 22px;
+      stroke: var(--gold-dark);
+    }
+
+    .hc-icon svg {
+      width: 18px;
+      height: 18px;
+      stroke: var(--gold);
+    }
+
+    .service-icon-wrap::before {
+      content: '';
+      position: absolute;
+      top: -1px;
+      right: -1px;
+      width: 10px;
+      height: 10px;
+      background: var(--gold);
+    }
+
+    .service-card h3 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 0.7rem;
+    }
+
+    .service-card p {
+      font-size: 0.87rem;
+      color: var(--muted-dark);
+      line-height: 1.75;
+    }
+
+    .service-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--gold-dark);
+      font-size: 0.78rem;
+      font-weight: 600;
+      margin-top: 1.5rem;
+      text-decoration: none;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: gap 0.3s;
+    }
+
+    .service-link:hover {
+      gap: 0.9rem;
+    }
+
+    /* WHY */
+    .why-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: center;
+    }
+
+    .why-visual {
+      position: relative;
+      height: 480px;
+      overflow: hidden;
+      max-width: 100%;
+    }
+
+    .why-orb {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(201, 168, 76, 0.1) 0%, rgba(201, 168, 76, 0.02) 70%, transparent 100%);
+      border: 1px solid rgba(201, 168, 76, 0.18);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .why-orb-inner {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--navy2), var(--navy3));
+      border: 1px solid rgba(201, 168, 76, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .why-orb-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--gold);
+    }
+
+    .why-float {
+      position: absolute;
+      background: var(--white);
+      border: 1px solid rgba(201, 168, 76, 0.15);
+      padding: 1.2rem 1.5rem;
+      box-shadow: 0 8px 32px rgba(11, 22, 40, 0.08);
+    }
+
+    .why-float.f1 {
+      top: 0;
+      left: 0;
+      width: 180px;
+      animation: wf1 5s ease-in-out infinite;
+    }
+
+    .why-float.f2 {
+      top: 40px;
+      right: 0;
+      width: 200px;
+      animation: wf2 6s ease-in-out infinite;
+    }
+
+    .why-float.f3 {
+      bottom: 80px;
+      left: 20px;
+      width: 200px;
+      animation: wf1 4.5s ease-in-out infinite;
+    }
+
+    .why-float.f4 {
+      bottom: 20px;
+      right: 20px;
+      width: 160px;
+      animation: wf2 5.5s ease-in-out infinite;
+    }
+
+    @keyframes wf1 {
+
+      0%,
+      100% {
+        transform: translateY(0)
+      }
+
+      50% {
+        transform: translateY(-10px)
+      }
+    }
+
+    @keyframes wf2 {
+
+      0%,
+      100% {
+        transform: translateY(0)
+      }
+
+      50% {
+        transform: translateY(8px)
+      }
+    }
+
+    .wf-label {
+      font-size: 0.63rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      margin-bottom: 0.4rem;
+    }
+
+    .wf-val {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--gold-dark);
+      line-height: 1;
+    }
+
+    .wf-sub {
+      font-size: 0.73rem;
+      color: var(--muted-dark);
+      margin-top: 0.2rem;
+    }
+
+    .wf-bar {
+      height: 3px;
+      background: var(--cream);
+      margin-top: 0.8rem;
+    }
+
+    .wf-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--gold-dark), var(--gold-light));
+    }
+
+    .wf-top {
+      height: 2px;
+      background: linear-gradient(90deg, var(--gold), var(--gold-light));
+      margin-bottom: 1rem;
+    }
+
+    .why-points {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .why-point {
+      display: flex;
+      gap: 1.5rem;
+      align-items: flex-start;
+      padding: 1.8rem 0;
+      border-bottom: 1px solid rgba(201, 168, 76, 0.1);
+      transition: padding-left 0.3s;
+    }
+
+    .why-point:first-child {
+      border-top: 1px solid rgba(201, 168, 76, 0.1);
+    }
+
+    .why-point:hover {
+      padding-left: 0.5rem;
+    }
+
+    .why-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--gold);
+      min-width: 28px;
+      padding-top: 0.05rem;
+    }
+
+    .why-point h4 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 0.4rem;
+    }
+
+    .why-point p {
+      font-size: 0.87rem;
+      color: var(--muted-dark);
+      line-height: 1.7;
+    }
+
+    /* PROCESS */
+    .process-layout {
+      position: relative;
+    }
+
+    .process-line {
+      position: absolute;
+      top: 28px;
+      left: calc(5% + 28px);
+      right: 5%;
+      height: 1px;
+      background: linear-gradient(90deg, var(--gold) 0%, rgba(201, 168, 76, 0.1) 100%);
+    }
+
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .step-num {
+      width: 56px;
+      height: 56px;
+      background: var(--navy);
+      border: 2px solid var(--gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--gold);
+      margin-bottom: 2rem;
+      position: relative;
+      z-index: 2;
+      box-shadow: 0 0 0 6px rgba(201, 168, 76, 0.07);
+    }
+
+    .process-step h4 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 0.6rem;
+    }
+
+    .process-step p {
+      font-size: 0.85rem;
+      color: var(--muted-dark);
+      line-height: 1.7;
+    }
+
+    .process-tag {
+      display: inline-block;
+      font-size: 0.63rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold-dark);
+      background: rgba(201, 168, 76, 0.08);
+      border: 1px solid rgba(201, 168, 76, 0.15);
+      padding: 0.2rem 0.6rem;
+      margin-top: 0.8rem;
+    }
+
+    /* TEAM */
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      background: rgba(201, 168, 76, 0.08);
+    }
+
+    .team-card {
+      background: var(--navy2);
+      padding: 2.8rem 2.4rem;
+      text-align: center;
+      transition: background 0.4s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .team-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--gold-dark), var(--gold-light));
+      transition: width 0.5s;
+    }
+
+    .team-card:hover::before {
+      width: 100%;
+    }
+
+    .team-card:hover {
+      background: var(--navy3);
+    }
+
+    .team-avatar {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      margin: 0 auto 1.8rem;
+      overflow: hidden;
+      border: 2px solid rgba(201, 168, 76, 0.35);
+      box-shadow: 0 0 0 6px rgba(201, 168, 76, 0.07), 0 8px 24px rgba(0, 0, 0, 0.3);
+      background: linear-gradient(145deg, rgba(201, 168, 76, 0.12), rgba(11, 22, 40, 0.4));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .team-avatar img {
+      width: 82%;
+      height: 82%;
+      object-fit: contain;
+      display: block;
+    }
+
+    .team-card h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 0.3rem;
+    }
+
+    .team-role {
+      font-size: 0.68rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 500;
+      margin-bottom: 1.2rem;
+    }
+
+    .team-card p {
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.42);
+      line-height: 1.7;
+    }
+
+    .team-skills {
+      display: flex;
+      gap: 0.4rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 1.5rem;
+    }
+
+    .skill-tag {
+      font-size: 0.63rem;
+      letter-spacing: 0.08em;
+      background: rgba(201, 168, 76, 0.08);
+      border: 1px solid rgba(201, 168, 76, 0.18);
+      color: var(--gold);
+      padding: 0.25rem 0.65rem;
+    }
+
+    /* PRICING */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      background: rgba(201, 168, 76, 0.08);
+    }
+
+    .pricing-card {
+      background: var(--white);
+      padding: 3rem 2.5rem;
+      position: relative;
+      overflow: hidden;
+      transition: background 0.3s;
+    }
+
+    .pricing-card.featured {
+      background: var(--navy);
+    }
+
+    .pricing-ribbon {
+      position: absolute;
+      top: 1.6rem;
+      right: -2.5rem;
+      background: linear-gradient(135deg, var(--gold-light), var(--gold));
+      color: var(--navy);
+      font-size: 0.58rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 0.3rem 3rem;
+      transform: rotate(45deg);
+    }
+
+    .pricing-top-bar {
+      height: 3px;
+      background: linear-gradient(90deg, var(--gold-dark), var(--gold-light));
+      margin: -3rem -2.5rem 2.5rem;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .pricing-card:hover .pricing-top-bar,
+    .pricing-card.featured .pricing-top-bar {
+      opacity: 1;
+    }
+
+    .pricing-plan {
+      font-size: 0.68rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold-dark);
+      font-weight: 600;
+      margin-bottom: 1.2rem;
+    }
+
+    .pricing-card.featured .pricing-plan {
+      color: var(--gold);
+    }
+
+    .pricing-price {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1;
+      margin-bottom: 0.3rem;
+      letter-spacing: -0.02em;
+    }
+
+    .pricing-card.featured .pricing-price {
+      color: var(--white);
+    }
+
+    .pricing-price sup {
+      font-size: 1.2rem;
+      vertical-align: top;
+      margin-top: 0.4rem;
+    }
+
+    .pricing-period {
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-bottom: 2rem;
+    }
+
+    .pricing-card.featured .pricing-period {
+      color: rgba(255, 255, 255, 0.35);
+    }
+
+    .pricing-divider {
+      height: 1px;
+      background: rgba(201, 168, 76, 0.12);
+      margin-bottom: 1.8rem;
+    }
+
+    .pricing-features {
+      list-style: none;
+      margin-bottom: 2.5rem;
+    }
+
+    .pricing-features li {
+      font-size: 0.87rem;
+      color: var(--muted-dark);
+      padding: 0.6rem 0;
+      border-bottom: 1px solid rgba(201, 168, 76, 0.06);
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .pricing-card.featured .pricing-features li {
+      color: rgba(255, 255, 255, 0.55);
+      border-color: rgba(255, 255, 255, 0.05);
+    }
+
+    .pricing-check {
+      width: 18px;
+      height: 18px;
+      background: rgba(201, 168, 76, 0.12);
+      border: 1px solid rgba(201, 168, 76, 0.25);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.58rem;
+      color: var(--gold-dark);
+      flex-shrink: 0;
+    }
+
+    .pricing-features li.na .pricing-check {
+      background: rgba(0, 0, 0, 0.04);
+      border-color: rgba(0, 0, 0, 0.08);
+      color: var(--muted);
+    }
+
+    .pricing-features li.na {
+      opacity: 0.5;
+    }
+
+    .btn-navy {
+      display: block;
+      text-align: center;
+      padding: 0.9rem;
+      background: var(--navy);
+      color: var(--gold-pale);
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 1px;
+      transition: all 0.3s;
+      border: 1px solid var(--navy);
+    }
+
+    .btn-navy:hover {
+      background: var(--gold);
+      color: var(--navy);
+      border-color: var(--gold);
+    }
+
+    .btn-gold-outline {
+      display: block;
+      text-align: center;
+      padding: 0.9rem;
+      border: 1px solid rgba(201, 168, 76, 0.4);
+      color: var(--gold);
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 1px;
+      transition: all 0.3s;
+    }
+
+    .btn-gold-outline:hover {
+      background: var(--gold);
+      color: var(--navy);
+    }
+
+    /* ── CONTACT SECTION ── */
+    .cta-section {
+      background: var(--navy);
+      padding: 8rem 5%;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      top: -200px;
+      right: -200px;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(201, 168, 76, 0.07) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .cta-section::after {
+      content: '';
+      position: absolute;
+      bottom: -150px;
+      left: -150px;
+      width: 400px;
+      height: 400px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(201, 168, 76, 0.04) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .contact-inner {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: start;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .contact-left {}
+
+    .contact-desc {
+      color: rgba(255, 255, 255, 0.42);
+      font-size: 1rem;
+      line-height: 1.75;
+      max-width: 400px;
+      margin-bottom: 2.5rem;
+    }
+
+    .contact-whatsapp {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.7rem;
+      background: #25D366;
+      color: white;
+      padding: 0.85rem 1.8rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-decoration: none;
+      border-radius: 1px;
+      transition: all 0.3s;
+    }
+
+    .contact-whatsapp:hover {
       background: #1fba58;
-      transform: scale(1.08);
-      box-shadow: 0 8px 28px rgba(37, 211, 102, 0.55);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(37, 211, 102, 0.3);
     }
-  }
-  .whatsapp-float svg {
-    width: 1.65rem;
-    height: 1.65rem;
-    fill: currentColor;
-    flex-shrink: 0;
-  }
 
-  /* CURSOR */
-  #dd-cursor, #dd-cursor-ring, #dd-cursor-trail {
-    display: none;
-    position: fixed;
-    top: 0; left: 0;
-    pointer-events: none;
-    z-index: 100002;
-    transform: translate(-50%, -50%);
-    opacity: 0;
-    will-change: transform, left, top;
-  }
-  #dd-cursor {
-    width: 8px; height: 8px;
-    background: var(--gold);
-    border-radius: 50%;
-    transition: width 0.25s ease, height 0.25s ease, background 0.25s ease, opacity 0.2s ease;
-  }
-  #dd-cursor-ring {
-    width: 36px; height: 36px;
-    border: 1px solid rgba(201, 168, 76, 0.5);
-    border-radius: 50%;
-    transition: width 0.35s ease, height 0.35s ease, border-color 0.35s ease, opacity 0.2s ease;
-  }
-  #dd-cursor-trail {
-    width: 6px; height: 6px;
-    background: rgba(201, 168, 76, 0.25);
-    border-radius: 50%;
-    transition: opacity 0.2s ease;
-  }
+    /* FORM */
+    .contact-form-wrap {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(201, 168, 76, 0.15);
+      padding: 2.5rem;
+      position: relative;
+    }
 
-  @media (max-width: 900px) {
-    .nav-links { display: none; }
-    .nav-toggle { display: flex; }
-    nav { padding-left: max(1rem, 5%); padding-right: max(1rem, 5%); }
-    .hero { padding-left: max(1rem, 5%); padding-right: max(1rem, 5%); }
-    .hero-accent { display: none; }
-    .hero-glow { width: min(800px, 150vw); height: min(800px, 150vw); right: -40%; }
-    .hero-layout { grid-template-columns: 1fr; }
-    .hero-panel { display: none; }
-    .hero-mobile-strip { display: grid; }
-    .why-layout { grid-template-columns: 1fr; min-width: 0; }
-    .why-visual { height: 320px; margin-bottom: 2rem; }
-    .why-float.f1, .why-float.f3 { left: 0; max-width: 46%; }
-    .why-float.f2, .why-float.f4 { right: 0; left: auto; max-width: 46%; }
-    .why-wa-mockup { width: min(160px, 42vw); right: 0; }
-    .section { padding-left: max(1rem, 5%); padding-right: max(1rem, 5%); }
-    .cta-section { padding-left: max(1rem, 5%); padding-right: max(1rem, 5%); }
-    .logos-section { padding-left: max(1rem, 5%); padding-right: max(1rem, 5%); }
-    footer { padding-left: max(1rem, 5%); padding-right: max(1rem, 5%); }
-    .pricing-grid { overflow: hidden; }
-    .services-grid { grid-template-columns: 1fr 1fr; }
-    .process-grid { grid-template-columns: 1fr 1fr; }
-    .team-grid { grid-template-columns: 1fr; }
-    .pricing-grid { grid-template-columns: 1fr; }
-    .portfolio-grid { grid-template-columns: 1fr; }
-    .testimonials-grid { grid-template-columns: 1fr; }
-    .contact-inner { grid-template-columns: 1fr; gap: 3rem; }
-    .hero-stats { grid-template-columns: 1fr 1fr; }
-    .sticky-mobile-cta { display: grid; }
-    * { cursor: auto !important; }
-    #dd-cursor, #dd-cursor-ring, #dd-cursor-trail { display: none !important; }
+    .contact-form-wrap::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+
+    .form-heading {
+      font-size: 0.68rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 500;
+      margin-bottom: 2rem;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .form-group label {
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.45);
+      font-weight: 500;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(201, 168, 76, 0.18);
+      color: var(--white);
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 300;
+      padding: 0.85rem 1rem;
+      border-radius: 1px;
+      outline: none;
+      transition: border-color 0.3s, background 0.3s;
+      width: 100%;
+    }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: rgba(255, 255, 255, 0.2);
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: rgba(201, 168, 76, 0.5);
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .form-group input.error-input,
+    .form-group textarea.error-input {
+      border-color: rgba(220, 80, 80, 0.6);
+      background: rgba(220, 80, 80, 0.04);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 110px;
+      line-height: 1.6;
+    }
+
+    .error-msg {
+      font-size: 0.72rem;
+      color: #e88080;
+      letter-spacing: 0.04em;
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .error-msg::before {
+      content: '⚠';
+      font-size: 0.65rem;
+    }
+
+    .form-submit-btn {
+      background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 50%, var(--gold-dark) 100%);
+      color: var(--navy);
+      border: none;
+      padding: 1rem 2rem;
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border-radius: 1px;
+      cursor: pointer;
+      transition: all 0.3s;
+      box-shadow: 0 4px 20px rgba(201, 168, 76, 0.25);
+      align-self: flex-start;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .form-submit-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(201, 168, 76, 0.4);
+    }
+
+    .form-submit-btn:active {
+      transform: translateY(0);
+    }
+
+    .form-submit-btn:disabled {
+      opacity: 0.65;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .form-error-banner {
+      display: none;
+      align-items: center;
+      gap: 0.8rem;
+      background: rgba(220, 80, 80, 0.08);
+      border: 1px solid rgba(220, 80, 80, 0.25);
+      padding: 1rem 1.2rem;
+      margin-top: 0.5rem;
+    }
+
+    .form-error-banner.visible {
+      display: flex;
+    }
+
+    .form-error-banner p {
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.6);
+      line-height: 1.5;
+    }
+
+    .form-success {
+      display: none;
+      align-items: center;
+      gap: 0.8rem;
+      background: rgba(37, 211, 102, 0.08);
+      border: 1px solid rgba(37, 211, 102, 0.25);
+      padding: 1rem 1.2rem;
+      margin-top: 0.5rem;
+    }
+
+    .form-success.visible {
+      display: flex;
+    }
+
+    .form-success-icon {
+      width: 28px;
+      height: 28px;
+      background: rgba(37, 211, 102, 0.15);
+      border: 1px solid rgba(37, 211, 102, 0.3);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #25D366;
+      font-size: 0.8rem;
+      flex-shrink: 0;
+    }
+
+    .form-success p {
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.6);
+      line-height: 1.5;
+    }
+
+    .form-success strong {
+      color: #25D366;
+      font-weight: 500;
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--navy2);
+      border-top: 1px solid rgba(201, 168, 76, 0.1);
+      padding: 3rem 5%;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    .footer-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--white);
+    }
+
+    .footer-logo span {
+      color: var(--gold);
+    }
+
+    .footer-copy {
+      font-size: 0.78rem;
+      color: rgba(255, 255, 255, 0.28);
+      margin-top: 0.3rem;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 2.5rem;
+    }
+
+    .footer-links a {
+      font-size: 0.76rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.32);
+      text-decoration: none;
+      transition: color 0.3s;
+      font-weight: 500;
+    }
+
+    .footer-links a:hover {
+      color: var(--gold);
+    }
+
+    .footer-tagline {
+      text-align: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.88rem;
+      font-style: italic;
+      color: rgba(255, 255, 255, 0.18);
+      letter-spacing: 0.1em;
+      margin-top: 2rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(201, 168, 76, 0.07);
+    }
+
+    /* MOBILE NAV */
+    .nav-toggle {
+      display: none;
+      width: 44px;
+      height: 44px;
+      border: 1px solid rgba(201, 168, 76, 0.25);
+      background: transparent;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      padding: 0;
+    }
+
+    .nav-toggle span {
+      display: block;
+      width: 20px;
+      height: 1.5px;
+      background: var(--navy);
+      margin: 4px auto;
+      transition: transform 0.3s, opacity 0.3s;
+    }
+
+    body.nav-open .nav-toggle span:nth-child(1) {
+      transform: translateY(5.5px) rotate(45deg);
+    }
+
+    body.nav-open .nav-toggle span:nth-child(2) {
+      opacity: 0;
+    }
+
+    body.nav-open .nav-toggle span:nth-child(3) {
+      transform: translateY(-5.5px) rotate(-45deg);
+    }
+
+    .mobile-nav {
+      position: fixed;
+      inset: 0;
+      z-index: 499;
+      background: rgba(11, 22, 40, 0.97);
+      backdrop-filter: blur(20px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.35s, visibility 0.35s;
+    }
+
+    body.nav-open .mobile-nav {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .mobile-nav a {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      color: var(--white);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      transition: color 0.3s;
+    }
+
+    .mobile-nav a:hover {
+      color: var(--gold);
+    }
+
+    .mobile-nav .nav-cta-mobile {
+      margin-top: 1rem;
+      background: linear-gradient(135deg, var(--gold-light), var(--gold));
+      color: var(--navy);
+      padding: 0.9rem 2rem;
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    /* HERO BROWSER CAROUSEL */
+    .browser-mockup {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(201, 168, 76, 0.2);
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 0 24px 64px rgba(0, 0, 0, 0.35);
+    }
+
+    .browser-bar {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1rem;
+      background: rgba(0, 0, 0, 0.25);
+      border-bottom: 1px solid rgba(201, 168, 76, 0.1);
+    }
+
+    .browser-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+    }
+
+    .browser-dot:nth-child(1) {
+      background: #ff5f57;
+    }
+
+    .browser-dot:nth-child(2) {
+      background: #febc2e;
+    }
+
+    .browser-dot:nth-child(3) {
+      background: #28c840;
+    }
+
+    .browser-url {
+      flex: 1;
+      margin-left: 0.5rem;
+      font-size: 0.65rem;
+      color: rgba(255, 255, 255, 0.35);
+      letter-spacing: 0.04em;
+      text-align: center;
+      padding: 0.35rem 0.8rem;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 2px;
+    }
+
+    .browser-carousel {
+      position: relative;
+      aspect-ratio: 16/10;
+      overflow: hidden;
+    }
+
+    .carousel-slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity 0.8s ease;
+    }
+
+    .carousel-slide.active {
+      opacity: 1;
+      z-index: 1;
+    }
+
+    .carousel-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .carousel-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 1.2rem 1rem;
+      background: linear-gradient(transparent, rgba(11, 22, 40, 0.92));
+    }
+
+    .carousel-caption strong {
+      display: block;
+      font-size: 0.85rem;
+      color: var(--white);
+      margin-bottom: 0.15rem;
+    }
+
+    .carousel-caption span {
+      font-size: 0.7rem;
+      color: var(--gold);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .carousel-dots {
+      display: flex;
+      justify-content: center;
+      gap: 0.4rem;
+      padding: 0.75rem;
+      background: rgba(0, 0, 0, 0.2);
+    }
+
+    .carousel-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      border: none;
+      background: rgba(201, 168, 76, 0.25);
+      cursor: pointer;
+      padding: 0;
+      transition: background 0.3s, transform 0.3s;
+    }
+
+    .carousel-dot.active {
+      background: var(--gold);
+      transform: scale(1.2);
+    }
+
+    .hero-mobile-strip {
+      display: none;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.5rem;
+      margin-top: 2rem;
+      animation: fadeUp 0.8s 0.45s ease both;
+    }
+
+    .hms-item {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(201, 168, 76, 0.15);
+      padding: 0.85rem 0.5rem;
+      text-align: center;
+    }
+
+    .hms-item svg {
+      width: 18px;
+      height: 18px;
+      stroke: var(--gold);
+      margin: 0 auto 0.4rem;
+      display: block;
+    }
+
+    .hms-item span {
+      font-size: 0.62rem;
+      color: rgba(255, 255, 255, 0.5);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    /* LOGOS STRIP */
+    .logos-section {
+      padding: 2.5rem 5%;
+      background: var(--white);
+      border-bottom: 1px solid rgba(201, 168, 76, 0.12);
+      overflow-x: clip;
+      max-width: 100%;
+    }
+
+    .logos-label {
+      text-align: center;
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+      font-weight: 500;
+    }
+
+    .logos-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem 3rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .logo-pill {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: rgba(26, 37, 64, 0.35);
+      letter-spacing: 0.02em;
+      transition: color 0.3s;
+    }
+
+    .logo-pill:hover {
+      color: var(--gold-dark);
+    }
+
+    /* PORTFOLIO */
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+
+    .portfolio-card {
+      position: relative;
+      overflow: hidden;
+      background: var(--navy);
+      border: 1px solid rgba(201, 168, 76, 0.12);
+      transition: transform 0.4s, box-shadow 0.4s;
+    }
+
+    .portfolio-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 48px rgba(11, 22, 40, 0.15);
+    }
+
+    .portfolio-img {
+      aspect-ratio: 16/10;
+      overflow: hidden;
+    }
+
+    .portfolio-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .portfolio-card:hover .portfolio-img img {
+      transform: scale(1.05);
+    }
+
+    .portfolio-body {
+      padding: 1.4rem 1.5rem;
+    }
+
+    .portfolio-tag {
+      font-size: 0.62rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold-dark);
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+    }
+
+    .portfolio-body h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 0.35rem;
+    }
+
+    .portfolio-body p {
+      font-size: 0.82rem;
+      color: var(--muted-dark);
+      line-height: 1.6;
+    }
+
+    .portfolio-result {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      margin-top: 0.75rem;
+      font-size: 0.72rem;
+      color: var(--gold-dark);
+      font-weight: 500;
+    }
+
+    .portfolio-result svg {
+      width: 14px;
+      height: 14px;
+      stroke: var(--gold);
+    }
+
+    /* WHATSAPP MOCKUP */
+    .why-wa-mockup {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 200px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 12px 40px rgba(11, 22, 40, 0.12);
+      border: 1px solid rgba(201, 168, 76, 0.15);
+      overflow: hidden;
+      animation: wf2 5s ease-in-out infinite;
+      z-index: 2;
+    }
+
+    .wa-header {
+      background: #075E54;
+      color: #fff;
+      padding: 0.65rem 0.8rem;
+      font-size: 0.72rem;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .wa-header-dot {
+      width: 8px;
+      height: 8px;
+      background: #25D366;
+      border-radius: 50%;
+    }
+
+    .wa-body {
+      padding: 0.8rem;
+      background: #ECE5DD;
+      min-height: 100px;
+    }
+
+    .wa-bubble {
+      background: #fff;
+      padding: 0.5rem 0.65rem;
+      border-radius: 0 8px 8px 8px;
+      font-size: 0.68rem;
+      color: #333;
+      line-height: 1.45;
+      max-width: 90%;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+      margin-bottom: 0.4rem;
+    }
+
+    .wa-bubble.out {
+      background: #DCF8C6;
+      margin-left: auto;
+      border-radius: 8px 0 8px 8px;
+    }
+
+    /* TESTIMONIALS */
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .testimonial-card {
+      background: var(--white);
+      border: 1px solid rgba(201, 168, 76, 0.15);
+      padding: 2rem;
+      position: relative;
+      transition: box-shadow 0.3s, transform 0.3s;
+    }
+
+    .testimonial-card:hover {
+      box-shadow: 0 12px 40px rgba(11, 22, 40, 0.08);
+      transform: translateY(-2px);
+    }
+
+    .testimonial-stars {
+      color: var(--gold);
+      font-size: 0.85rem;
+      letter-spacing: 0.15em;
+      margin-bottom: 1rem;
+    }
+
+    .testimonial-quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem;
+      font-style: italic;
+      color: var(--navy);
+      line-height: 1.55;
+      margin-bottom: 1.5rem;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+    }
+
+    .testimonial-avatar {
+      width: 44px;
+      height: 44px;
+      min-width: 44px;
+      border-radius: 50%;
+      border: 2px solid rgba(201, 168, 76, 0.35);
+      background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 50%, var(--gold-dark) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--navy);
+      flex-shrink: 0;
+    }
+
+    .testimonial-name {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--navy);
+    }
+
+    .testimonial-role {
+      font-size: 0.72rem;
+      color: var(--muted);
+      margin-top: 0.1rem;
+    }
+
+    /* PRICING BADGE */
+    .pricing-badge {
+      display: inline-block;
+      font-size: 0.62rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold-dark);
+      background: rgba(201, 168, 76, 0.1);
+      border: 1px solid rgba(201, 168, 76, 0.2);
+      padding: 0.25rem 0.6rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .pricing-card.featured .pricing-badge {
+      color: var(--gold);
+      border-color: rgba(201, 168, 76, 0.35);
+      background: rgba(201, 168, 76, 0.12);
+    }
+
+    /* FAQ */
+    .faq-list {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid rgba(201, 168, 76, 0.15);
+    }
+
+    .faq-item summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 1.4rem 0;
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--navy);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      transition: color 0.3s;
+    }
+
+    .faq-item summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .faq-item summary::after {
+      content: '+';
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      color: var(--gold);
+      flex-shrink: 0;
+      transition: transform 0.3s;
+    }
+
+    .faq-item[open] summary::after {
+      transform: rotate(45deg);
+    }
+
+    .faq-item summary:hover {
+      color: var(--gold-dark);
+    }
+
+    .faq-answer {
+      padding: 0 0 1.4rem;
+      font-size: 0.9rem;
+      color: var(--muted-dark);
+      line-height: 1.75;
+    }
+
+    /* STICKY MOBILE CTA */
+    .sticky-mobile-cta {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 100000;
+      padding: 0.65rem 1rem;
+      padding-bottom: max(0.65rem, env(safe-area-inset-bottom));
+      background: rgba(11, 22, 40, 0.96);
+      backdrop-filter: blur(12px);
+      border-top: 1px solid rgba(201, 168, 76, 0.2);
+      gap: 0.5rem;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .sticky-mobile-cta a {
+      text-align: center;
+      padding: 0.75rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 1px;
+    }
+
+    .sticky-cta-form {
+      background: linear-gradient(135deg, var(--gold-light), var(--gold));
+      color: var(--navy);
+    }
+
+    .sticky-cta-wa {
+      background: #25D366;
+      color: #fff;
+    }
+
+    .stat-num.counting {
+      transition: none;
+    }
+
+    /* SCROLL REVEAL */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    .reveal-d1 {
+      transition-delay: 0.1s;
+    }
+
+    .reveal-d2 {
+      transition-delay: 0.2s;
+    }
+
+    .reveal-d3 {
+      transition-delay: 0.3s;
+    }
+
+    /* WHATSAPP FLOAT */
     .whatsapp-float {
-      bottom: max(4.5rem, calc(env(safe-area-inset-bottom, 0px) + 4rem));
-      right: max(1.25rem, env(safe-area-inset-right, 0px));
+      position: fixed;
+      bottom: 1.75rem;
+      right: 1.75rem;
+      z-index: 100001;
+      width: 3.5rem;
+      height: 3.5rem;
+      min-width: 3.5rem;
+      min-height: 3.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #25D366;
+      color: #fff;
+      border-radius: 50%;
+      box-shadow: 0 4px 20px rgba(37, 211, 102, 0.45);
+      text-decoration: none;
+      transition: transform 0.3s, background 0.3s, box-shadow 0.3s;
+      -webkit-tap-highlight-color: transparent;
+      touch-action: manipulation;
+      pointer-events: auto;
     }
-  }
-  @media (max-width: 600px) {
-    .services-grid { grid-template-columns: 1fr; }
-    .process-grid { grid-template-columns: 1fr; }
-    .process-line { display: none; }
-    .form-row { grid-template-columns: 1fr; }
-    .hero-mobile-strip { grid-template-columns: 1fr 1fr; }
-    .hms-item:last-child { grid-column: span 2; }
-    .why-float { display: none; }
-    .why-visual { height: 200px; }
-    .btn-gold, .btn-ghost { width: 100%; text-align: center; justify-content: center; }
-    .footer-links { gap: 1rem; flex-wrap: wrap; justify-content: center; }
-    .footer-inner { justify-content: center; text-align: center; }
-    .whatsapp-float {
-      bottom: max(4.25rem, calc(env(safe-area-inset-bottom, 0px) + 3.75rem));
-      right: max(1rem, env(safe-area-inset-right, 0px));
-      width: 3.25rem; height: 3.25rem;
-      min-width: 3.25rem; min-height: 3.25rem;
-    }
-    .whatsapp-float svg { width: 1.5rem; height: 1.5rem; }
-  }
 
-  @media (min-width: 901px) {
-    body.custom-cursor * { cursor: none !important; }
-    body.custom-cursor #dd-cursor,
-    body.custom-cursor #dd-cursor-ring,
-    body.custom-cursor #dd-cursor-trail { display: block; }
-    body.custom-cursor.cursor-visible #dd-cursor,
-    body.custom-cursor.cursor-visible #dd-cursor-ring,
-    body.custom-cursor.cursor-visible #dd-cursor-trail { opacity: 1; }
-    body.custom-cursor.cursor-hover #dd-cursor { width: 12px; height: 12px; background: var(--gold-light); }
-    body.custom-cursor.cursor-hover #dd-cursor-ring { width: 52px; height: 52px; border-color: var(--gold); }
-    body.custom-cursor.cursor-click #dd-cursor { width: 6px; height: 6px; background: var(--gold-dark); }
-    body.custom-cursor.cursor-click #dd-cursor-ring { width: 28px; height: 28px; border-color: var(--gold-light); }
-  }
-</style>
+    @media (hover: hover) {
+      .whatsapp-float:hover {
+        background: #1fba58;
+        transform: scale(1.08);
+        box-shadow: 0 8px 28px rgba(37, 211, 102, 0.55);
+      }
+    }
+
+    .whatsapp-float svg {
+      width: 1.65rem;
+      height: 1.65rem;
+      fill: currentColor;
+      flex-shrink: 0;
+    }
+
+    /* CURSOR */
+    #dd-cursor,
+    #dd-cursor-ring,
+    #dd-cursor-trail {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      z-index: 100002;
+      transform: translate(-50%, -50%);
+      opacity: 0;
+      will-change: transform, left, top;
+    }
+
+    #dd-cursor {
+      width: 8px;
+      height: 8px;
+      background: var(--gold);
+      border-radius: 50%;
+      transition: width 0.25s ease, height 0.25s ease, background 0.25s ease, opacity 0.2s ease;
+    }
+
+    #dd-cursor-ring {
+      width: 36px;
+      height: 36px;
+      border: 1px solid rgba(201, 168, 76, 0.5);
+      border-radius: 50%;
+      transition: width 0.35s ease, height 0.35s ease, border-color 0.35s ease, opacity 0.2s ease;
+    }
+
+    #dd-cursor-trail {
+      width: 6px;
+      height: 6px;
+      background: rgba(201, 168, 76, 0.25);
+      border-radius: 50%;
+      transition: opacity 0.2s ease;
+    }
+
+    @media (max-width: 900px) {
+      .nav-links {
+        display: none;
+      }
+
+      .nav-toggle {
+        display: flex;
+      }
+
+      nav {
+        padding-left: max(1rem, 5%);
+        padding-right: max(1rem, 5%);
+      }
+
+      .hero {
+        padding-left: max(1rem, 5%);
+        padding-right: max(1rem, 5%);
+      }
+
+      .hero-accent {
+        display: none;
+      }
+
+      .hero-glow {
+        width: min(800px, 150vw);
+        height: min(800px, 150vw);
+        right: -40%;
+      }
+
+      .hero-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-panel {
+        display: none;
+      }
+
+      .hero-mobile-strip {
+        display: grid;
+      }
+
+      .why-layout {
+        grid-template-columns: 1fr;
+        min-width: 0;
+      }
+
+      .why-visual {
+        height: 320px;
+        margin-bottom: 2rem;
+      }
+
+      .why-float.f1,
+      .why-float.f3 {
+        left: 0;
+        max-width: 46%;
+      }
+
+      .why-float.f2,
+      .why-float.f4 {
+        right: 0;
+        left: auto;
+        max-width: 46%;
+      }
+
+      .why-wa-mockup {
+        width: min(160px, 42vw);
+        right: 0;
+      }
+
+      .section {
+        padding-left: max(1rem, 5%);
+        padding-right: max(1rem, 5%);
+      }
+
+      .cta-section {
+        padding-left: max(1rem, 5%);
+        padding-right: max(1rem, 5%);
+      }
+
+      .logos-section {
+        padding-left: max(1rem, 5%);
+        padding-right: max(1rem, 5%);
+      }
+
+      footer {
+        padding-left: max(1rem, 5%);
+        padding-right: max(1rem, 5%);
+      }
+
+      .pricing-grid {
+        overflow: hidden;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .process-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .team-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .pricing-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .portfolio-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .testimonials-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-inner {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+
+      .hero-stats {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .sticky-mobile-cta {
+        display: grid;
+      }
+
+      * {
+        cursor: auto !important;
+      }
+
+      #dd-cursor,
+      #dd-cursor-ring,
+      #dd-cursor-trail {
+        display: none !important;
+      }
+
+      .whatsapp-float {
+        bottom: max(4.5rem, calc(env(safe-area-inset-bottom, 0px) + 4rem));
+        right: max(1.25rem, env(safe-area-inset-right, 0px));
+      }
+    }
+
+    @media (max-width: 600px) {
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .process-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .process-line {
+        display: none;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-mobile-strip {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .hms-item:last-child {
+        grid-column: span 2;
+      }
+
+      .why-float {
+        display: none;
+      }
+
+      .why-visual {
+        height: 200px;
+      }
+
+      .btn-gold,
+      .btn-ghost {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+      }
+
+      .footer-links {
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .footer-inner {
+        justify-content: center;
+        text-align: center;
+      }
+
+      .whatsapp-float {
+        bottom: max(4.25rem, calc(env(safe-area-inset-bottom, 0px) + 3.75rem));
+        right: max(1rem, env(safe-area-inset-right, 0px));
+        width: 3.25rem;
+        height: 3.25rem;
+        min-width: 3.25rem;
+        min-height: 3.25rem;
+      }
+
+      .whatsapp-float svg {
+        width: 1.5rem;
+        height: 1.5rem;
+      }
+    }
+
+    @media (min-width: 901px) {
+      body.custom-cursor * {
+        cursor: none !important;
+      }
+
+      body.custom-cursor #dd-cursor,
+      body.custom-cursor #dd-cursor-ring,
+      body.custom-cursor #dd-cursor-trail {
+        display: block;
+      }
+
+      body.custom-cursor.cursor-visible #dd-cursor,
+      body.custom-cursor.cursor-visible #dd-cursor-ring,
+      body.custom-cursor.cursor-visible #dd-cursor-trail {
+        opacity: 1;
+      }
+
+      body.custom-cursor.cursor-hover #dd-cursor {
+        width: 12px;
+        height: 12px;
+        background: var(--gold-light);
+      }
+
+      body.custom-cursor.cursor-hover #dd-cursor-ring {
+        width: 52px;
+        height: 52px;
+        border-color: var(--gold);
+      }
+
+      body.custom-cursor.cursor-click #dd-cursor {
+        width: 6px;
+        height: 6px;
+        background: var(--gold-dark);
+      }
+
+      body.custom-cursor.cursor-click #dd-cursor-ring {
+        width: 28px;
+        height: 28px;
+        border-color: var(--gold-light);
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-<nav id="mainNav">
-  <div class="logo">Digital<span>Door</span></div>
-  <ul class="nav-links">
-    <li><a href="#work">Work</a></li>
-    <li><a href="#services">Services</a></li>
-    <li><a href="#pricing">Pricing</a></li>
-    <li><a href="#contact" class="nav-cta"><span>Get Started</span></a></li>
-  </ul>
-  <button class="nav-toggle" id="navToggle" type="button" aria-label="Open menu" aria-expanded="false">
-    <span></span><span></span><span></span>
-  </button>
-</nav>
+  <nav id="mainNav">
+    <div class="logo">Digital<span>Door</span></div>
+    <ul class="nav-links">
+      <li><a href="#work">Work</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="#contact" class="nav-cta"><span>Get Started</span></a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" type="button" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
 
-<div class="mobile-nav" id="mobileNav" aria-hidden="true">
-  <a href="#work">Our Work</a>
-  <a href="#services">Services</a>
-  <a href="#process">Process</a>
-  <a href="#team">Team</a>
-  <a href="#pricing">Pricing</a>
-  <a href="#faq">FAQ</a>
-  <a href="#contact" class="nav-cta-mobile">Get Started</a>
-</div>
+  <div class="mobile-nav" id="mobileNav" aria-hidden="true">
+    <a href="#work">Our Work</a>
+    <a href="#services">Services</a>
+    <a href="#process">Process</a>
+    <a href="#team">Team</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#faq">FAQ</a>
+    <a href="#contact" class="nav-cta-mobile">Get Started</a>
+  </div>
 
-<section class="hero">
-  <div class="hero-glow"></div>
-  <div class="hero-accent"></div>
-  <div class="hero-layout">
-    <div class="hero-left">
-      <div class="hero-eyebrow">
-        <div class="pulse-dot"></div>
-        Currently accepting new clients
-      </div>
-      <h1>We Build Your<br><em>Digital Future</em></h1>
-      <p class="hero-sub">Karachi's premier web development studio turning offline businesses into powerful digital brands — beautifully crafted, lightning fast.</p>
-      <div class="hero-actions">
-        <a href="#contact" class="btn-gold">Start Your Project</a>
-        <a href="#services" class="btn-ghost">View Services →</a>
-      </div>
-      <div class="hero-stats" id="heroStats">
-        <div class="stat-box">
-          <div class="stat-num" data-count="50" data-suffix="+">0+</div>
-          <div class="stat-label">Karachi Businesses Online</div>
+  <section class="hero">
+    <div class="hero-glow"></div>
+    <div class="hero-accent"></div>
+    <div class="hero-layout">
+      <div class="hero-left">
+        <div class="hero-eyebrow">
+          <div class="pulse-dot"></div>
+          Currently accepting new clients
         </div>
-        <div class="stat-box">
-          <div class="stat-num" data-count="7">0</div>
-          <div class="stat-label">Day Delivery</div>
+        <h1>We Build Your<br><em>Digital Future</em></h1>
+        <p class="hero-sub">Karachi's premier web development studio turning offline businesses into powerful digital
+          brands — beautifully crafted, lightning fast.</p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn-gold">Start Your Project</a>
+          <a href="#services" class="btn-ghost">View Services →</a>
         </div>
-        <div class="stat-box">
-          <div class="stat-num" data-count="3">0</div>
-          <div class="stat-label">Expert Devs</div>
-        </div>
-        <div class="stat-box">
-          <div class="stat-num" data-count="100" data-suffix="%">0%</div>
-          <div class="stat-label">Satisfaction</div>
-        </div>
-      </div>
-      <div class="hero-mobile-strip">
-        <div class="hms-item"><i data-lucide="globe"></i><span>Websites</span></div>
-        <div class="hms-item"><i data-lucide="shopping-bag"></i><span>E-Commerce</span></div>
-        <div class="hms-item"><i data-lucide="message-circle"></i><span>WhatsApp</span></div>
-      </div>
-    </div>
-    <div class="hero-panel">
-      <div class="browser-mockup">
-        <div class="browser-bar">
-          <span class="browser-dot"></span>
-          <span class="browser-dot"></span>
-          <span class="browser-dot"></span>
-          <span class="browser-url">digitaldoor.pk</span>
-        </div>
-        <div class="browser-carousel" id="heroCarousel">
-          <div class="carousel-slide active">
-            <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&q=80" alt="Boutique website" loading="lazy">
-            <div class="carousel-caption"><strong>Noor Boutique</strong><span>Fashion · Clifton</span></div>
+        <div class="hero-stats" id="heroStats">
+          <div class="stat-box">
+            <div class="stat-num" data-count="50" data-suffix="+">0+</div>
+            <div class="stat-label">Karachi Businesses Online</div>
           </div>
-          <div class="carousel-slide">
-            <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&q=80" alt="Restaurant website" loading="lazy">
-            <div class="carousel-caption"><strong>Saffron Kitchen</strong><span>Restaurant · DHA</span></div>
+          <div class="stat-box">
+            <div class="stat-num" data-count="7">0</div>
+            <div class="stat-label">Day Delivery</div>
           </div>
-          <div class="carousel-slide">
-            <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=800&q=80" alt="Salon website" loading="lazy">
-            <div class="carousel-caption"><strong>Glow Salon</strong><span>Beauty · Gulshan</span></div>
+          <div class="stat-box">
+            <div class="stat-num" data-count="3">0</div>
+            <div class="stat-label">Expert Devs</div>
           </div>
-          <div class="carousel-slide">
-            <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?w=800&q=80" alt="Grocery store website" loading="lazy">
-            <div class="carousel-caption"><strong>Fresh Mart</strong><span>Grocery · North Nazimabad</span></div>
+          <div class="stat-box">
+            <div class="stat-num" data-count="100" data-suffix="%">0%</div>
+            <div class="stat-label">Satisfaction</div>
           </div>
         </div>
-        <div class="carousel-dots" id="carouselDots">
-          <button type="button" class="carousel-dot active" aria-label="Slide 1"></button>
-          <button type="button" class="carousel-dot" aria-label="Slide 2"></button>
-          <button type="button" class="carousel-dot" aria-label="Slide 3"></button>
-          <button type="button" class="carousel-dot" aria-label="Slide 4"></button>
+        <div class="hero-mobile-strip">
+          <div class="hms-item"><i data-lucide="globe"></i><span>Websites</span></div>
+          <div class="hms-item"><i data-lucide="shopping-bag"></i><span>E-Commerce</span></div>
+          <div class="hms-item"><i data-lucide="message-circle"></i><span>WhatsApp</span></div>
+        </div>
+      </div>
+      <div class="hero-panel">
+        <div class="browser-mockup">
+          <div class="browser-bar">
+            <span class="browser-dot"></span>
+            <span class="browser-dot"></span>
+            <span class="browser-dot"></span>
+            <span class="browser-url">digitaldoor.pk</span>
+          </div>
+          <div class="browser-carousel" id="heroCarousel">
+            <div class="carousel-slide active">
+              <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&q=80" alt="Boutique website"
+                loading="lazy">
+              <div class="carousel-caption"><strong>Noor Boutique</strong><span>Fashion · Clifton</span></div>
+            </div>
+            <div class="carousel-slide">
+              <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&q=80"
+                alt="Restaurant website" loading="lazy">
+              <div class="carousel-caption"><strong>Saffron Kitchen</strong><span>Restaurant · DHA</span></div>
+            </div>
+            <div class="carousel-slide">
+              <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=800&q=80" alt="Salon website"
+                loading="lazy">
+              <div class="carousel-caption"><strong>Glow Salon</strong><span>Beauty · Gulshan</span></div>
+            </div>
+            <div class="carousel-slide">
+              <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?w=800&q=80"
+                alt="Grocery store website" loading="lazy">
+              <div class="carousel-caption"><strong>Fresh Mart</strong><span>Grocery · North Nazimabad</span></div>
+            </div>
+          </div>
+          <div class="carousel-dots" id="carouselDots">
+            <button type="button" class="carousel-dot active" aria-label="Slide 1"></button>
+            <button type="button" class="carousel-dot" aria-label="Slide 2"></button>
+            <button type="button" class="carousel-dot" aria-label="Slide 3"></button>
+            <button type="button" class="carousel-dot" aria-label="Slide 4"></button>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<div class="marquee-section">
-  <div class="marquee-track">
-    <span class="marquee-item">Web Design</span>
-    <span class="marquee-item">E-Commerce</span>
-    <span class="marquee-item">WhatsApp Integration</span>
-    <span class="marquee-item">SEO Optimization</span>
-    <span class="marquee-item">Mobile Responsive</span>
-    <span class="marquee-item">Clothes Shops</span>
-    <span class="marquee-item">Restaurants</span>
-    <span class="marquee-item">Boutiques</span>
-    <span class="marquee-item">Salons</span>
-    <span class="marquee-item">Grocery Stores</span>
-    <span class="marquee-item">Web Design</span>
-    <span class="marquee-item">E-Commerce</span>
-    <span class="marquee-item">WhatsApp Integration</span>
-    <span class="marquee-item">SEO Optimization</span>
-    <span class="marquee-item">Mobile Responsive</span>
-    <span class="marquee-item">Clothes Shops</span>
-    <span class="marquee-item">Restaurants</span>
-    <span class="marquee-item">Boutiques</span>
-    <span class="marquee-item">Salons</span>
-    <span class="marquee-item">Grocery Stores</span>
-  </div>
-</div>
-<div class="logos-section reveal">
-  <div class="logos-label">Trusted by local businesses across Karachi</div>
-  <div class="logos-grid">
-    <span class="logo-pill">Noor Boutique</span>
-    <span class="logo-pill">Saffron Kitchen</span>
-    <span class="logo-pill">Glow Salon</span>
-    <span class="logo-pill">Fresh Mart</span>
-    <span class="logo-pill">Style Hub</span>
-    <span class="logo-pill">Karachi Bakers</span>
-  </div>
-</div>
-
-<section class="section bg-off" id="work">
-  <div class="section-label">Our Work</div>
-  <h2 class="section-title">Websites That<br>Bring In Customers</h2>
-  <p class="section-sub">Real projects for Karachi shops, restaurants, salons, and stores — built to convert visitors into WhatsApp orders.</p>
-  <div class="portfolio-grid reveal">
-    <article class="portfolio-card reveal">
-      <div class="portfolio-img">
-        <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&q=80" alt="Fashion boutique website" loading="lazy">
-      </div>
-      <div class="portfolio-body">
-        <div class="portfolio-tag">Fashion · Clifton</div>
-        <h3>Noor Boutique</h3>
-        <p>Elegant catalogue site with WhatsApp ordering for a women's fashion boutique.</p>
-        <span class="portfolio-result"><i data-lucide="trending-up"></i> +40% WhatsApp inquiries</span>
-      </div>
-    </article>
-    <article class="portfolio-card reveal reveal-d1">
-      <div class="portfolio-img">
-        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&q=80" alt="Restaurant website" loading="lazy">
-      </div>
-      <div class="portfolio-body">
-        <div class="portfolio-tag">Restaurant · DHA</div>
-        <h3>Saffron Kitchen</h3>
-        <p>Menu showcase, gallery, and one-tap reservation via WhatsApp.</p>
-        <span class="portfolio-result"><i data-lucide="trending-up"></i> 2× online reservations</span>
-      </div>
-    </article>
-    <article class="portfolio-card reveal reveal-d2">
-      <div class="portfolio-img">
-        <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=800&q=80" alt="Salon website" loading="lazy">
-      </div>
-      <div class="portfolio-body">
-        <div class="portfolio-tag">Beauty · Gulshan</div>
-        <h3>Glow Salon</h3>
-        <p>Service listings, pricing, and booking flow integrated with WhatsApp.</p>
-        <span class="portfolio-result"><i data-lucide="trending-up"></i> Bookings up 35%</span>
-      </div>
-    </article>
-    <article class="portfolio-card reveal reveal-d3">
-      <div class="portfolio-img">
-        <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?w=800&q=80" alt="Grocery website" loading="lazy">
-      </div>
-      <div class="portfolio-body">
-        <div class="portfolio-tag">Grocery · North Nazimabad</div>
-        <h3>Fresh Mart</h3>
-        <p>Product categories with quick-order WhatsApp buttons for daily essentials.</p>
-        <span class="portfolio-result"><i data-lucide="trending-up"></i> Daily orders via WhatsApp</span>
-      </div>
-    </article>
-  </div>
-</section>
-
-
-<section class="section" id="services">
-  <div class="section-label">What We Do</div>
-  <h2 class="section-title">Services That<br>Drive Real Results</h2>
-  <p class="section-sub">Every local business deserves a powerful online presence. We craft it with precision and care.</p>
-  <div class="services-grid reveal">
-    <div class="service-card">
-      <span class="service-num">01</span>
-      <div class="service-icon-wrap"><i data-lucide="globe"></i></div>
-      <h3>Business Websites</h3>
-      <p>Professional, fast-loading websites that showcase your shop beautifully and bring in customers around the clock.</p>
-      <a href="#contact" class="service-link">Explore →</a>
-    </div>
-    <div class="service-card">
-      <span class="service-num">02</span>
-      <div class="service-icon-wrap"><i data-lucide="shopping-bag"></i></div>
-      <h3>Online Stores</h3>
-      <p>Full e-commerce solutions with product listings, categories, and seamless WhatsApp ordering built in.</p>
-      <a href="#contact" class="service-link">Explore →</a>
-    </div>
-    <div class="service-card">
-      <span class="service-num">03</span>
-      <div class="service-icon-wrap"><i data-lucide="smartphone"></i></div>
-      <h3>Mobile-First Design</h3>
-      <p>Every website looks pixel-perfect on every phone — because your customers live and shop on mobile.</p>
-      <a href="#contact" class="service-link">Explore →</a>
-    </div>
-    <div class="service-card">
-      <span class="service-num">04</span>
-      <div class="service-icon-wrap"><i data-lucide="message-circle"></i></div>
-      <h3>WhatsApp Integration</h3>
-      <p>Direct order buttons, chat flows, and automated responses to capture every lead the moment they land.</p>
-      <a href="#contact" class="service-link">Explore →</a>
-    </div>
-    <div class="service-card">
-      <span class="service-num">05</span>
-      <div class="service-icon-wrap"><i data-lucide="search"></i></div>
-      <h3>SEO & Visibility</h3>
-      <p>Get found on Google when customers search what you sell. Local SEO that turns search traffic into real revenue.</p>
-      <a href="#contact" class="service-link">Explore →</a>
-    </div>
-    <div class="service-card">
-      <span class="service-num">06</span>
-      <div class="service-icon-wrap"><i data-lucide="zap"></i></div>
-      <h3>Maintenance & Support</h3>
-      <p>Ongoing updates, security hardening, and responsive support — your website always at its peak performance.</p>
-      <a href="#contact" class="service-link">Explore →</a>
+  <div class="marquee-section">
+    <div class="marquee-track">
+      <span class="marquee-item">Web Design</span>
+      <span class="marquee-item">E-Commerce</span>
+      <span class="marquee-item">WhatsApp Integration</span>
+      <span class="marquee-item">SEO Optimization</span>
+      <span class="marquee-item">Mobile Responsive</span>
+      <span class="marquee-item">Clothes Shops</span>
+      <span class="marquee-item">Restaurants</span>
+      <span class="marquee-item">Boutiques</span>
+      <span class="marquee-item">Salons</span>
+      <span class="marquee-item">Grocery Stores</span>
+      <span class="marquee-item">Web Design</span>
+      <span class="marquee-item">E-Commerce</span>
+      <span class="marquee-item">WhatsApp Integration</span>
+      <span class="marquee-item">SEO Optimization</span>
+      <span class="marquee-item">Mobile Responsive</span>
+      <span class="marquee-item">Clothes Shops</span>
+      <span class="marquee-item">Restaurants</span>
+      <span class="marquee-item">Boutiques</span>
+      <span class="marquee-item">Salons</span>
+      <span class="marquee-item">Grocery Stores</span>
     </div>
   </div>
-</section>
+  <div class="logos-section reveal">
+    <div class="logos-label">Trusted by local businesses across Karachi</div>
+    <div class="logos-grid">
+      <span class="logo-pill">Noor Boutique</span>
+      <span class="logo-pill">Saffron Kitchen</span>
+      <span class="logo-pill">Glow Salon</span>
+      <span class="logo-pill">Fresh Mart</span>
+      <span class="logo-pill">Style Hub</span>
+      <span class="logo-pill">Karachi Bakers</span>
+    </div>
+  </div>
 
-<section class="section bg-off" id="why">
-  <div class="why-layout">
-    <div class="why-visual">
-      <div class="why-orb">
-        <div class="why-orb-inner">
-          <div class="why-orb-logo">DD</div>
+  <section class="section bg-off" id="work">
+    <div class="section-label">Our Work</div>
+    <h2 class="section-title">Websites That<br>Bring In Customers</h2>
+    <p class="section-sub">Real projects for Karachi shops, restaurants, salons, and stores — built to convert visitors
+      into WhatsApp orders.</p>
+    <div class="portfolio-grid reveal">
+      <article class="portfolio-card reveal">
+        <div class="portfolio-img">
+          <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&q=80"
+            alt="Fashion boutique website" loading="lazy">
+        </div>
+        <div class="portfolio-body">
+          <div class="portfolio-tag">Fashion · Clifton</div>
+          <h3>Noor Boutique</h3>
+          <p>Elegant catalogue site with WhatsApp ordering for a women's fashion boutique.</p>
+          <span class="portfolio-result"><i data-lucide="trending-up"></i> +40% WhatsApp inquiries</span>
+        </div>
+      </article>
+      <article class="portfolio-card reveal reveal-d1">
+        <div class="portfolio-img">
+          <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&q=80" alt="Restaurant website"
+            loading="lazy">
+        </div>
+        <div class="portfolio-body">
+          <div class="portfolio-tag">Restaurant · DHA</div>
+          <h3>Saffron Kitchen</h3>
+          <p>Menu showcase, gallery, and one-tap reservation via WhatsApp.</p>
+          <span class="portfolio-result"><i data-lucide="trending-up"></i> 2× online reservations</span>
+        </div>
+      </article>
+      <article class="portfolio-card reveal reveal-d2">
+        <div class="portfolio-img">
+          <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=800&q=80" alt="Salon website"
+            loading="lazy">
+        </div>
+        <div class="portfolio-body">
+          <div class="portfolio-tag">Beauty · Gulshan</div>
+          <h3>Glow Salon</h3>
+          <p>Service listings, pricing, and booking flow integrated with WhatsApp.</p>
+          <span class="portfolio-result"><i data-lucide="trending-up"></i> Bookings up 35%</span>
+        </div>
+      </article>
+      <article class="portfolio-card reveal reveal-d3">
+        <div class="portfolio-img">
+          <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?w=800&q=80" alt="Grocery website"
+            loading="lazy">
+        </div>
+        <div class="portfolio-body">
+          <div class="portfolio-tag">Grocery · North Nazimabad</div>
+          <h3>Fresh Mart</h3>
+          <p>Product categories with quick-order WhatsApp buttons for daily essentials.</p>
+          <span class="portfolio-result"><i data-lucide="trending-up"></i> Daily orders via WhatsApp</span>
+        </div>
+      </article>
+    </div>
+  </section>
+
+
+  <section class="section" id="services">
+    <div class="section-label">What We Do</div>
+    <h2 class="section-title">Services That<br>Drive Real Results</h2>
+    <p class="section-sub">Every local business deserves a powerful online presence. We craft it with precision and
+      care.</p>
+    <div class="services-grid reveal">
+      <div class="service-card">
+        <span class="service-num">01</span>
+        <div class="service-icon-wrap"><i data-lucide="globe"></i></div>
+        <h3>Business Websites</h3>
+        <p>Professional, fast-loading websites that showcase your shop beautifully and bring in customers around the
+          clock.</p>
+        <a href="#contact" class="service-link">Explore →</a>
+      </div>
+      <div class="service-card">
+        <span class="service-num">02</span>
+        <div class="service-icon-wrap"><i data-lucide="shopping-bag"></i></div>
+        <h3>Online Stores</h3>
+        <p>Full e-commerce solutions with product listings, categories, and seamless WhatsApp ordering built in.</p>
+        <a href="#contact" class="service-link">Explore →</a>
+      </div>
+      <div class="service-card">
+        <span class="service-num">03</span>
+        <div class="service-icon-wrap"><i data-lucide="smartphone"></i></div>
+        <h3>Mobile-First Design</h3>
+        <p>Every website looks pixel-perfect on every phone — because your customers live and shop on mobile.</p>
+        <a href="#contact" class="service-link">Explore →</a>
+      </div>
+      <div class="service-card">
+        <span class="service-num">04</span>
+        <div class="service-icon-wrap"><i data-lucide="message-circle"></i></div>
+        <h3>WhatsApp Integration</h3>
+        <p>Direct order buttons, chat flows, and automated responses to capture every lead the moment they land.</p>
+        <a href="#contact" class="service-link">Explore →</a>
+      </div>
+      <div class="service-card">
+        <span class="service-num">05</span>
+        <div class="service-icon-wrap"><i data-lucide="search"></i></div>
+        <h3>SEO & Visibility</h3>
+        <p>Get found on Google when customers search what you sell. Local SEO that turns search traffic into real
+          revenue.</p>
+        <a href="#contact" class="service-link">Explore →</a>
+      </div>
+      <div class="service-card">
+        <span class="service-num">06</span>
+        <div class="service-icon-wrap"><i data-lucide="zap"></i></div>
+        <h3>Maintenance & Support</h3>
+        <p>Ongoing updates, security hardening, and responsive support — your website always at its peak performance.
+        </p>
+        <a href="#contact" class="service-link">Explore →</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-off" id="why">
+    <div class="why-layout">
+      <div class="why-visual">
+        <div class="why-orb">
+          <div class="why-orb-inner">
+            <div class="why-orb-logo">DD</div>
+          </div>
+        </div>
+        <div class="why-float f1">
+          <div class="wf-top"></div>
+          <div class="wf-label">Projects Delivered</div>
+          <div class="wf-val">50+</div>
+          <div class="wf-sub">Across Karachi</div>
+          <div class="wf-bar">
+            <div class="wf-fill" style="width:85%"></div>
+          </div>
+        </div>
+        <div class="why-float f2">
+          <div class="wf-top"></div>
+          <div class="wf-label">Avg Delivery Time</div>
+          <div class="wf-val">7 Days</div>
+          <div class="wf-sub">Brief to live site</div>
+        </div>
+        <div class="why-float f3">
+          <div class="wf-top"></div>
+          <div class="wf-label">Client Retention</div>
+          <div class="wf-val">95%</div>
+          <div class="wf-sub">Return for more</div>
+          <div class="wf-bar">
+            <div class="wf-fill" style="width:95%"></div>
+          </div>
+        </div>
+        <div class="why-float f4">
+          <div class="wf-top"></div>
+          <div class="wf-label">Support Hours</div>
+          <div class="wf-val">24/7</div>
+          <div class="wf-sub">Always available</div>
+        </div>
+        <div class="why-wa-mockup">
+          <div class="wa-header"><span class="wa-header-dot"></span> DigitalDoor</div>
+          <div class="wa-body">
+            <div class="wa-bubble">Hi! I'd like a website for my boutique.</div>
+            <div class="wa-bubble out">We'd love to help! Free quote in 1 hour ✦</div>
+          </div>
+        </div>
+
+      </div>
+      <div>
+        <div class="section-label">Why DigitalDoor</div>
+        <h2 class="section-title" style="margin-bottom:2.5rem;">We Understand<br>Local Business</h2>
+        <div class="why-points">
+          <div class="why-point reveal">
+            <div class="why-num">01</div>
+            <div>
+              <h4>Karachi-Based Team</h4>
+              <p>We're local. We understand Karachi's markets, customers, and culture — not distant agencies with no
+                context of your reality.</p>
+            </div>
+          </div>
+          <div class="why-point reveal reveal-d1">
+            <div class="why-num">02</div>
+            <div>
+              <h4>Affordable & Transparent</h4>
+              <p>No hidden charges. Fixed prices, honest scope. We know small businesses need results without burning
+                through capital.</p>
+            </div>
+          </div>
+          <div class="why-point reveal reveal-d2">
+            <div class="why-num">03</div>
+            <div>
+              <h4>7-Day Turnaround</h4>
+              <p>Your website goes live in a week. We move at the speed of business so you start acquiring customers
+                immediately.</p>
+            </div>
+          </div>
+          <div class="why-point reveal reveal-d3">
+            <div class="why-num">04</div>
+            <div>
+              <h4>Full Handover Training</h4>
+              <p>We train you completely to manage your own site. No ongoing dependency, no fees just to update your
+                products.</p>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="why-float f1">
-        <div class="wf-top"></div>
-        <div class="wf-label">Projects Delivered</div>
-        <div class="wf-val">50+</div>
-        <div class="wf-sub">Across Karachi</div>
-        <div class="wf-bar"><div class="wf-fill" style="width:85%"></div></div>
-      </div>
-      <div class="why-float f2">
-        <div class="wf-top"></div>
-        <div class="wf-label">Avg Delivery Time</div>
-        <div class="wf-val">7 Days</div>
-        <div class="wf-sub">Brief to live site</div>
-      </div>
-      <div class="why-float f3">
-        <div class="wf-top"></div>
-        <div class="wf-label">Client Retention</div>
-        <div class="wf-val">95%</div>
-        <div class="wf-sub">Return for more</div>
-        <div class="wf-bar"><div class="wf-fill" style="width:95%"></div></div>
-      </div>
-      <div class="why-float f4">
-        <div class="wf-top"></div>
-        <div class="wf-label">Support Hours</div>
-        <div class="wf-val">24/7</div>
-        <div class="wf-sub">Always available</div>
-      </div>
-      <div class="why-wa-mockup">
-        <div class="wa-header"><span class="wa-header-dot"></span> DigitalDoor</div>
-        <div class="wa-body">
-          <div class="wa-bubble">Hi! I'd like a website for my boutique.</div>
-          <div class="wa-bubble out">We'd love to help! Free quote in 1 hour ✦</div>
+    </div>
+  </section>
+
+  <section class="section" id="process">
+    <div class="section-label">How It Works</div>
+    <h2 class="section-title" style="margin-bottom:5rem;">From First Meeting<br>to Going Live in 7 Days</h2>
+    <div class="process-layout">
+      <div class="process-line"></div>
+      <div class="process-grid">
+        <div class="process-step reveal">
+          <div class="step-num">01</div>
+          <h4>Discovery Call</h4>
+          <p>We meet at your shop or online, understand your business, products, customer base, and goals in depth.</p>
+          <span class="process-tag">Day 1</span>
+        </div>
+        <div class="process-step reveal reveal-d1">
+          <div class="step-num">02</div>
+          <h4>Design & Plan</h4>
+          <p>We craft your website layout, select the aesthetic, and nail down all features and content requirements.
+          </p>
+          <span class="process-tag">Day 2–3</span>
+        </div>
+        <div class="process-step reveal reveal-d2">
+          <div class="step-num">03</div>
+          <h4>Build & Develop</h4>
+          <p>Our team builds your full website — mobile-perfect, blazing fast, and loaded with every agreed feature.</p>
+          <span class="process-tag">Day 4–6</span>
+        </div>
+        <div class="process-step reveal reveal-d3">
+          <div class="step-num">04</div>
+          <h4>Launch & Train</h4>
+          <p>We go live, configure WhatsApp integration, and deliver a complete handover training session.</p>
+          <span class="process-tag">Day 7</span>
         </div>
       </div>
-
     </div>
-    <div>
-      <div class="section-label">Why DigitalDoor</div>
-      <h2 class="section-title" style="margin-bottom:2.5rem;">We Understand<br>Local Business</h2>
-      <div class="why-points">
-        <div class="why-point reveal">
-          <div class="why-num">01</div>
+  </section>
+
+
+  <section class="section bg-cream" id="testimonials">
+    <div class="section-label">Client Stories</div>
+    <h2 class="section-title">What Business Owners<br>Say About Us</h2>
+    <p class="section-sub">Don't just take our word for it — hear from Karachi shop owners we've helped go online.</p>
+    <div class="testimonials-grid reveal">
+      <div class="testimonial-card reveal">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-quote">"They delivered in 5 days and our WhatsApp orders doubled. Professional team, fair
+          price."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar" aria-hidden="true">S</div>
           <div>
-            <h4>Karachi-Based Team</h4>
-            <p>We're local. We understand Karachi's markets, customers, and culture — not distant agencies with no context of your reality.</p>
+            <div class="testimonial-name">Sana Khan</div>
+            <div class="testimonial-role">Boutique Owner · DHA</div>
           </div>
         </div>
-        <div class="why-point reveal reveal-d1">
-          <div class="why-num">02</div>
+      </div>
+      <div class="testimonial-card reveal reveal-d1">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-quote">"Our restaurant menu went online and reservations picked up immediately. Highly
+          recommend DigitalDoor."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar" aria-hidden="true">A</div>
           <div>
-            <h4>Affordable & Transparent</h4>
-            <p>No hidden charges. Fixed prices, honest scope. We know small businesses need results without burning through capital.</p>
+            <div class="testimonial-name">Ahmed Raza</div>
+            <div class="testimonial-role">Restaurant Owner · Clifton</div>
           </div>
         </div>
-        <div class="why-point reveal reveal-d2">
-          <div class="why-num">03</div>
+      </div>
+      <div class="testimonial-card reveal reveal-d2">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-quote">"Clean design, fast delivery, and they trained me to update products myself. No
+          hidden fees."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar" aria-hidden="true">F</div>
           <div>
-            <h4>7-Day Turnaround</h4>
-            <p>Your website goes live in a week. We move at the speed of business so you start acquiring customers immediately.</p>
-          </div>
-        </div>
-        <div class="why-point reveal reveal-d3">
-          <div class="why-num">04</div>
-          <div>
-            <h4>Full Handover Training</h4>
-            <p>We train you completely to manage your own site. No ongoing dependency, no fees just to update your products.</p>
+            <div class="testimonial-name">Fatima Noor</div>
+            <div class="testimonial-role">Salon Owner · Gulshan</div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="section" id="process">
-  <div class="section-label">How It Works</div>
-  <h2 class="section-title" style="margin-bottom:5rem;">From First Meeting<br>to Going Live in 7 Days</h2>
-  <div class="process-layout">
-    <div class="process-line"></div>
-    <div class="process-grid">
-      <div class="process-step reveal">
-        <div class="step-num">01</div>
-        <h4>Discovery Call</h4>
-        <p>We meet at your shop or online, understand your business, products, customer base, and goals in depth.</p>
-        <span class="process-tag">Day 1</span>
+  <section class="section bg-navy" id="team">
+    <div class="section-label" style="--gold-dark: var(--gold);">The Team</div>
+    <h2 class="section-title light" style="margin-bottom:1rem;">Three Developers.<br>One Shared Mission.</h2>
+    <p class="section-sub light" style="margin-bottom:4rem;">Passionate about helping Karachi's businesses thrive in the
+      digital era.</p>
+    <div class="team-grid">
+      <div class="team-card reveal">
+        <div class="team-avatar"><img src="https://cdn.jsdelivr.net/gh/alohe/avatars/png/memo_17.png"
+            alt="Maryam A. Samad sticker avatar" loading="lazy"></div>
+        <h3>Maryam A. Samad</h3>
+        <div class="team-role">Full Stack Developer</div>
+        <p>Backend-focused developer building scalable REST APIs, role-based systems, and responsive frontends. 4+
+          real-world projects spanning PHP, Node.js, React, and MongoDB.</p>
+        <div class="team-skills">
+          <span class="skill-tag">PHP / Laravel</span>
+          <span class="skill-tag">Node.js</span>
+          <span class="skill-tag">React</span>
+          <span class="skill-tag">MySQL</span>
+          <span class="skill-tag">MongoDB</span>
+          <span class="skill-tag">Sales Pitching</span>
+        </div>
       </div>
-      <div class="process-step reveal reveal-d1">
-        <div class="step-num">02</div>
-        <h4>Design & Plan</h4>
-        <p>We craft your website layout, select the aesthetic, and nail down all features and content requirements.</p>
-        <span class="process-tag">Day 2–3</span>
+      <div class="team-card reveal reveal-d1">
+        <div class="team-avatar"><img src="https://cdn.jsdelivr.net/gh/alohe/avatars/png/memo_3.png"
+            alt="Habib Ur Rehman sticker avatar" loading="lazy"></div>
+        <h3>Habib Ur Rehman</h3>
+        <div class="team-role">MERN Stack Developer</div>
+        <p>Result-oriented developer specializing in high-performance websites. Combines creative frontend design with
+          robust backend APIs using the full MERN stack.</p>
+        <div class="team-skills">
+          <span class="skill-tag">React.js</span>
+          <span class="skill-tag">Node.js</span>
+          <span class="skill-tag">Sales Pitching</span>
+          <span class="skill-tag">Express.js</span>
+          <span class="skill-tag">MongoDB</span>
+        </div>
       </div>
-      <div class="process-step reveal reveal-d2">
-        <div class="step-num">03</div>
-        <h4>Build & Develop</h4>
-        <p>Our team builds your full website — mobile-perfect, blazing fast, and loaded with every agreed feature.</p>
-        <span class="process-tag">Day 4–6</span>
-      </div>
-      <div class="process-step reveal reveal-d3">
-        <div class="step-num">04</div>
-        <h4>Launch & Train</h4>
-        <p>We go live, configure WhatsApp integration, and deliver a complete handover training session.</p>
-        <span class="process-tag">Day 7</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<section class="section bg-cream" id="testimonials">
-  <div class="section-label">Client Stories</div>
-  <h2 class="section-title">What Business Owners<br>Say About Us</h2>
-  <p class="section-sub">Don't just take our word for it — hear from Karachi shop owners we've helped go online.</p>
-  <div class="testimonials-grid reveal">
-    <div class="testimonial-card reveal">
-      <div class="testimonial-stars">★★★★★</div>
-      <p class="testimonial-quote">"They delivered in 5 days and our WhatsApp orders doubled. Professional team, fair price."</p>
-      <div class="testimonial-author">
-        <div class="testimonial-avatar" aria-hidden="true">S</div>
-        <div>
-          <div class="testimonial-name">Sana Khan</div>
-          <div class="testimonial-role">Boutique Owner · DHA</div>
+      <div class="team-card reveal reveal-d2">
+        <div class="team-avatar"><img src="https://cdn.jsdelivr.net/gh/alohe/avatars/png/memo_22.png"
+            alt="Shahzain Akbar sticker avatar" loading="lazy"></div>
+        <h3>Shahzain Akbar</h3>
+        <div class="team-role">Data Science Student</div>
+        <p>18-year-old DUET student passionate about modern technology. Dedicated to mastering data-driven skills and
+          contributing meaningfully to team goals.</p>
+        <div class="team-skills">
+          <span class="skill-tag">Data Science</span>
+          <span class="skill-tag">Modern Tech</span>
+          <span class="skill-tag">Sales Pitching</span>
+          <span class="skill-tag">DUET</span>
         </div>
       </div>
     </div>
-    <div class="testimonial-card reveal reveal-d1">
-      <div class="testimonial-stars">★★★★★</div>
-      <p class="testimonial-quote">"Our restaurant menu went online and reservations picked up immediately. Highly recommend DigitalDoor."</p>
-      <div class="testimonial-author">
-        <div class="testimonial-avatar" aria-hidden="true">A</div>
-        <div>
-          <div class="testimonial-name">Ahmed Raza</div>
-          <div class="testimonial-role">Restaurant Owner · Clifton</div>
-        </div>
+  </section>
+
+  <section class="section bg-off" id="pricing">
+    <div class="section-label">Pricing</div>
+    <h2 class="section-title" style="margin-bottom:1rem;">Simple, Honest<br>Pricing</h2>
+    <p class="section-sub">No hidden fees. No surprises. All prices in PKR. Pick what fits your business.</p>
+    <div class="pricing-grid reveal">
+      <div class="pricing-card">
+        <div class="pricing-top-bar"></div>
+        <span class="pricing-badge">Best for new shops</span>
+        <div class="pricing-plan">Starter</div>
+        <div class="pricing-price"><sup>Rs</sup>15,000</div>
+        <div class="pricing-period">One-time payment · No recurring fees</div>
+        <div class="pricing-divider"></div>
+        <ul class="pricing-features">
+          <li><span class="pricing-check">✓</span> 5-page website</li>
+          <li><span class="pricing-check">✓</span> Mobile responsive</li>
+          <li><span class="pricing-check">✓</span> WhatsApp button</li>
+          <li><span class="pricing-check">✓</span> Contact form</li>
+          <li><span class="pricing-check">✓</span> Basic SEO setup</li>
+          <li class="na"><span class="pricing-check">—</span> Product catalogue</li>
+          <li class="na"><span class="pricing-check">—</span> Order management</li>
+        </ul>
+        <a href="#contact" class="btn-navy">Get Started</a>
+      </div>
+      <div class="pricing-card featured">
+        <div class="pricing-ribbon">Most Popular</div>
+        <div class="pricing-top-bar"></div>
+        <span class="pricing-badge">Most popular · boutiques & restaurants</span>
+        <div class="pricing-plan">Professional</div>
+        <div class="pricing-price"><sup>Rs</sup>30,000</div>
+        <div class="pricing-period">One-time payment · No recurring fees</div>
+        <div class="pricing-divider"></div>
+        <ul class="pricing-features">
+          <li><span class="pricing-check">✓</span> 10-page website</li>
+          <li><span class="pricing-check">✓</span> Mobile responsive</li>
+          <li><span class="pricing-check">✓</span> WhatsApp ordering</li>
+          <li><span class="pricing-check">✓</span> Product catalogue</li>
+          <li><span class="pricing-check">✓</span> Full SEO setup</li>
+          <li><span class="pricing-check">✓</span> Google Maps embed</li>
+          <li><span class="pricing-check">✓</span> 1 month support</li>
+        </ul>
+        <a href="#contact" class="btn-gold-outline">Get Started</a>
+      </div>
+      <div class="pricing-card">
+        <div class="pricing-top-bar"></div>
+        <span class="pricing-badge">Full e-commerce · large catalogues</span>
+        <div class="pricing-plan">Premium</div>
+        <div class="pricing-price"><sup>Rs</sup>55,000</div>
+        <div class="pricing-period">One-time payment · No recurring fees</div>
+        <div class="pricing-divider"></div>
+        <ul class="pricing-features">
+          <li><span class="pricing-check">✓</span> Unlimited pages</li>
+          <li><span class="pricing-check">✓</span> Custom animations</li>
+          <li><span class="pricing-check">✓</span> Full e-commerce store</li>
+          <li><span class="pricing-check">✓</span> Inventory system</li>
+          <li><span class="pricing-check">✓</span> Advanced SEO</li>
+          <li><span class="pricing-check">✓</span> Social media links</li>
+          <li><span class="pricing-check">✓</span> 3 months support</li>
+        </ul>
+        <a href="#contact" class="btn-navy">Get Started</a>
       </div>
     </div>
-    <div class="testimonial-card reveal reveal-d2">
-      <div class="testimonial-stars">★★★★★</div>
-      <p class="testimonial-quote">"Clean design, fast delivery, and they trained me to update products myself. No hidden fees."</p>
-      <div class="testimonial-author">
-        <div class="testimonial-avatar" aria-hidden="true">F</div>
-        <div>
-          <div class="testimonial-name">Fatima Noor</div>
-          <div class="testimonial-role">Salon Owner · Gulshan</div>
-        </div>
+  </section>
+
+
+  <section class="section bg-off" id="faq">
+    <div class="section-label">FAQ</div>
+    <h2 class="section-title" style="text-align:center;margin-bottom:0.5rem;">Common Questions</h2>
+    <p class="section-sub" style="text-align:center;margin-left:auto;margin-right:auto;margin-bottom:3rem;">Everything
+      you need to know before starting your project.</p>
+    <div class="faq-list reveal">
+      <details class="faq-item">
+        <summary>How long does it take to build my website?</summary>
+        <p class="faq-answer">Most projects go live within 7 days — from our first discovery call to launch and WhatsApp
+          setup. Simpler sites can be ready even faster.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Do I need to pay everything upfront?</summary>
+        <p class="faq-answer">We typically take 50% to start and 50% on delivery. No hidden fees — the price on our
+          pricing page is what you pay.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Can I update my products and prices myself?</summary>
+        <p class="faq-answer">Yes. We include a full handover training session so you can manage your catalogue, images,
+          and content without depending on us.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Will my site work on mobile phones?</summary>
+        <p class="faq-answer">Every site we build is mobile-first. Most of your customers in Karachi browse and order on
+          WhatsApp from their phones — we design for that.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Do you help with WhatsApp ordering?</summary>
+        <p class="faq-answer">Absolutely. WhatsApp integration is a core part of what we do — order buttons, pre-filled
+          messages, and flows that turn visitors into customers instantly.</p>
+      </details>
+    </div>
+  </section>
+
+
+  <!-- CONTACT SECTION WITH FORM -->
+  <section class="cta-section" id="contact">
+    <div class="contact-inner">
+      <!-- Left: heading + WhatsApp CTA -->
+      <div class="contact-left reveal">
+        <div class="section-label" style="--gold-dark: var(--gold);">Ready to Start?</div>
+        <h2 class="section-title light">Let's Get Your Business<br><em
+            style="background:linear-gradient(135deg,var(--gold-light),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-style:italic;">Online
+            Today</em></h2>
+        <p class="contact-desc">Drop us a message and we'll get back to you within the hour — or reach us directly on
+          WhatsApp for an instant response.</p>
+        <a href="https://wa.me/923302657105?text=Hi%20DigitalDoor!%20I%20want%20a%20website%20for%20my%20business."
+          class="contact-whatsapp" target="_blank" rel="noopener noreferrer">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+          </svg>
+          Chat on WhatsApp
+        </a>
       </div>
-    </div>
-  </div>
-</section>
 
-<section class="section bg-navy" id="team">
-  <div class="section-label" style="--gold-dark: var(--gold);">The Team</div>
-  <h2 class="section-title light" style="margin-bottom:1rem;">Three Developers.<br>One Shared Mission.</h2>
-  <p class="section-sub light" style="margin-bottom:4rem;">Passionate about helping Karachi's businesses thrive in the digital era.</p>
-  <div class="team-grid">
-    <div class="team-card reveal">
-      <div class="team-avatar"><img src="https://cdn.jsdelivr.net/gh/alohe/avatars/png/memo_17.png" alt="Maryam A. Samad sticker avatar" loading="lazy"></div>
-      <h3>Maryam A. Samad</h3>
-      <div class="team-role">Full Stack Developer</div>
-      <p>Backend-focused developer building scalable REST APIs, role-based systems, and responsive frontends. 4+ real-world projects spanning PHP, Node.js, React, and MongoDB.</p>
-      <div class="team-skills">
-        <span class="skill-tag">PHP / Laravel</span>
-        <span class="skill-tag">Node.js</span>
-        <span class="skill-tag">React</span>
-        <span class="skill-tag">MySQL</span>
-        <span class="skill-tag">MongoDB</span>
-        <span class="skill-tag">Sales Pitching</span>
-      </div>
-    </div>
-    <div class="team-card reveal reveal-d1">
-      <div class="team-avatar"><img src="https://cdn.jsdelivr.net/gh/alohe/avatars/png/memo_3.png" alt="Habib Ur Rehman sticker avatar" loading="lazy"></div>
-      <h3>Habib Ur Rehman</h3>
-      <div class="team-role">MERN Stack Developer</div>
-      <p>Result-oriented developer specializing in high-performance websites. Combines creative frontend design with robust backend APIs using the full MERN stack.</p>
-      <div class="team-skills">
-        <span class="skill-tag">React.js</span>
-        <span class="skill-tag">Node.js</span>
-        <span class="skill-tag">Sales Pitching</span>
-        <span class="skill-tag">Express.js</span>
-        <span class="skill-tag">MongoDB</span>
-      </div>
-    </div>
-    <div class="team-card reveal reveal-d2">
-      <div class="team-avatar"><img src="https://cdn.jsdelivr.net/gh/alohe/avatars/png/memo_22.png" alt="Shahzain Akbar sticker avatar" loading="lazy"></div>
-      <h3>Shahzain Akbar</h3>
-      <div class="team-role">Data Science Student</div>
-      <p>18-year-old DUET student passionate about modern technology. Dedicated to mastering data-driven skills and contributing meaningfully to team goals.</p>
-      <div class="team-skills">
-        <span class="skill-tag">Data Science</span>
-        <span class="skill-tag">Modern Tech</span>
-        <span class="skill-tag">Sales Pitching</span>
-        <span class="skill-tag">DUET</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section bg-off" id="pricing">
-  <div class="section-label">Pricing</div>
-  <h2 class="section-title" style="margin-bottom:1rem;">Simple, Honest<br>Pricing</h2>
-  <p class="section-sub">No hidden fees. No surprises. All prices in PKR. Pick what fits your business.</p>
-  <div class="pricing-grid reveal">
-    <div class="pricing-card">
-      <div class="pricing-top-bar"></div>
-      <span class="pricing-badge">Best for new shops</span>
-      <div class="pricing-plan">Starter</div>
-      <div class="pricing-price"><sup>Rs</sup>15,000</div>
-      <div class="pricing-period">One-time payment · No recurring fees</div>
-      <div class="pricing-divider"></div>
-      <ul class="pricing-features">
-        <li><span class="pricing-check">✓</span> 5-page website</li>
-        <li><span class="pricing-check">✓</span> Mobile responsive</li>
-        <li><span class="pricing-check">✓</span> WhatsApp button</li>
-        <li><span class="pricing-check">✓</span> Contact form</li>
-        <li><span class="pricing-check">✓</span> Basic SEO setup</li>
-        <li class="na"><span class="pricing-check">—</span> Product catalogue</li>
-        <li class="na"><span class="pricing-check">—</span> Order management</li>
-      </ul>
-      <a href="#contact" class="btn-navy">Get Started</a>
-    </div>
-    <div class="pricing-card featured">
-      <div class="pricing-ribbon">Most Popular</div>
-      <div class="pricing-top-bar"></div>
-      <span class="pricing-badge">Most popular · boutiques & restaurants</span>
-      <div class="pricing-plan">Professional</div>
-      <div class="pricing-price"><sup>Rs</sup>30,000</div>
-      <div class="pricing-period">One-time payment · No recurring fees</div>
-      <div class="pricing-divider"></div>
-      <ul class="pricing-features">
-        <li><span class="pricing-check">✓</span> 10-page website</li>
-        <li><span class="pricing-check">✓</span> Mobile responsive</li>
-        <li><span class="pricing-check">✓</span> WhatsApp ordering</li>
-        <li><span class="pricing-check">✓</span> Product catalogue</li>
-        <li><span class="pricing-check">✓</span> Full SEO setup</li>
-        <li><span class="pricing-check">✓</span> Google Maps embed</li>
-        <li><span class="pricing-check">✓</span> 1 month support</li>
-      </ul>
-      <a href="#contact" class="btn-gold-outline">Get Started</a>
-    </div>
-    <div class="pricing-card">
-      <div class="pricing-top-bar"></div>
-      <span class="pricing-badge">Full e-commerce · large catalogues</span>
-      <div class="pricing-plan">Premium</div>
-      <div class="pricing-price"><sup>Rs</sup>55,000</div>
-      <div class="pricing-period">One-time payment · No recurring fees</div>
-      <div class="pricing-divider"></div>
-      <ul class="pricing-features">
-        <li><span class="pricing-check">✓</span> Unlimited pages</li>
-        <li><span class="pricing-check">✓</span> Custom animations</li>
-        <li><span class="pricing-check">✓</span> Full e-commerce store</li>
-        <li><span class="pricing-check">✓</span> Inventory system</li>
-        <li><span class="pricing-check">✓</span> Advanced SEO</li>
-        <li><span class="pricing-check">✓</span> Social media links</li>
-        <li><span class="pricing-check">✓</span> 3 months support</li>
-      </ul>
-      <a href="#contact" class="btn-navy">Get Started</a>
-    </div>
-  </div>
-</section>
-
-
-<section class="section bg-off" id="faq">
-  <div class="section-label">FAQ</div>
-  <h2 class="section-title" style="text-align:center;margin-bottom:0.5rem;">Common Questions</h2>
-  <p class="section-sub" style="text-align:center;margin-left:auto;margin-right:auto;margin-bottom:3rem;">Everything you need to know before starting your project.</p>
-  <div class="faq-list reveal">
-    <details class="faq-item">
-      <summary>How long does it take to build my website?</summary>
-      <p class="faq-answer">Most projects go live within 7 days — from our first discovery call to launch and WhatsApp setup. Simpler sites can be ready even faster.</p>
-    </details>
-    <details class="faq-item">
-      <summary>Do I need to pay everything upfront?</summary>
-      <p class="faq-answer">We typically take 50% to start and 50% on delivery. No hidden fees — the price on our pricing page is what you pay.</p>
-    </details>
-    <details class="faq-item">
-      <summary>Can I update my products and prices myself?</summary>
-      <p class="faq-answer">Yes. We include a full handover training session so you can manage your catalogue, images, and content without depending on us.</p>
-    </details>
-    <details class="faq-item">
-      <summary>Will my site work on mobile phones?</summary>
-      <p class="faq-answer">Every site we build is mobile-first. Most of your customers in Karachi browse and order on WhatsApp from their phones — we design for that.</p>
-    </details>
-    <details class="faq-item">
-      <summary>Do you help with WhatsApp ordering?</summary>
-      <p class="faq-answer">Absolutely. WhatsApp integration is a core part of what we do — order buttons, pre-filled messages, and flows that turn visitors into customers instantly.</p>
-    </details>
-  </div>
-</section>
-
-
-<!-- CONTACT SECTION WITH FORM -->
-<section class="cta-section" id="contact">
-  <div class="contact-inner">
-    <!-- Left: heading + WhatsApp CTA -->
-    <div class="contact-left reveal">
-      <div class="section-label" style="--gold-dark: var(--gold);">Ready to Start?</div>
-      <h2 class="section-title light">Let's Get Your Business<br><em style="background:linear-gradient(135deg,var(--gold-light),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-style:italic;">Online Today</em></h2>
-      <p class="contact-desc">Drop us a message and we'll get back to you within the hour — or reach us directly on WhatsApp for an instant response.</p>
-      <a
-        href="https://wa.me/923302657105?text=Hi%20DigitalDoor!%20I%20want%20a%20website%20for%20my%20business."
-        class="contact-whatsapp"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        Chat on WhatsApp
-      </a>
-    </div>
-
-    <!-- Right: contact form -->
-    <div class="contact-form-wrap reveal reveal-d1">
-      <div class="form-heading">✦ Send an Inquiry</div>
-      <form class="contact-form" id="contactForm" novalidate>
-        <div class="form-row">
+      <!-- Right: contact form -->
+      <div class="contact-form-wrap reveal reveal-d1">
+        <div class="form-heading">✦ Send an Inquiry</div>
+        <form class="contact-form" id="contactForm" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Your Name</label>
+              <input id="name" name="name" type="text" placeholder="Enter your name" autocomplete="name">
+              <span class="error-msg" id="nameError" style="display:none"></span>
+            </div>
+            <div class="form-group">
+              <label for="whatsapp">WhatsApp Number</label>
+              <input id="whatsapp" name="whatsapp" type="tel" placeholder="e.g. 0300 1234567" autocomplete="tel">
+              <span class="error-msg" id="whatsappError" style="display:none"></span>
+            </div>
+          </div>
           <div class="form-group">
-            <label for="name">Your Name</label>
-            <input id="name" name="name" type="text" placeholder="Enter your name" autocomplete="name">
-            <span class="error-msg" id="nameError" style="display:none"></span>
+            <label for="company">Company Name <span
+                style="color:rgba(255,255,255,0.2);font-size:0.65rem;">(optional)</span></label>
+            <input id="company" name="company" type="text" placeholder="Your brand or company"
+              autocomplete="organization">
           </div>
           <div class="form-group">
-            <label for="whatsapp">WhatsApp Number</label>
-            <input id="whatsapp" name="whatsapp" type="tel" placeholder="e.g. 0300 1234567" autocomplete="tel">
-            <span class="error-msg" id="whatsappError" style="display:none"></span>
+            <label for="message">Project Brief</label>
+            <textarea id="message" name="message" placeholder="Tell us what you want to create"></textarea>
+            <span class="error-msg" id="messageError" style="display:none"></span>
           </div>
-        </div>
-        <div class="form-group">
-          <label for="company">Company Name <span style="color:rgba(255,255,255,0.2);font-size:0.65rem;">(optional)</span></label>
-          <input id="company" name="company" type="text" placeholder="Your brand or company" autocomplete="organization">
-        </div>
-        <div class="form-group">
-          <label for="message">Project Brief</label>
-          <textarea id="message" name="message" placeholder="Tell us what you want to create"></textarea>
-          <span class="error-msg" id="messageError" style="display:none"></span>
-        </div>
-        <button class="form-submit-btn" type="submit" id="submitBtn">Send Inquiry</button>
-        <div class="form-error-banner" id="formError">
-          <p id="formErrorText"></p>
-        </div>
-        <div class="form-success" id="formSuccess">
-          <div class="form-success-icon">✓</div>
-          <p><strong>Message received!</strong> We'll get back to you within the hour.</p>
-        </div>
-      </form>
+          <button class="form-submit-btn" type="submit" id="submitBtn">Send Inquiry</button>
+          <div class="form-error-banner" id="formError">
+            <p id="formErrorText"></p>
+          </div>
+          <div class="form-success" id="formSuccess">
+            <div class="form-success-icon">✓</div>
+            <p><strong>Message received!</strong> We'll get back to you within the hour.</p>
+          </div>
+        </form>
+      </div>
     </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <div class="footer-logo">Digital<span>Door</span></div>
+        <div class="footer-copy">© 2025 DigitalDoor. Karachi, Pakistan.</div>
+      </div>
+      <div class="footer-links">
+        <a href="#work">Work</a>
+        <a href="#services">Services</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+    <div class="footer-tagline">Crafting digital experiences for Karachi's finest businesses.</div>
+  </footer>
+
+
+  <div class="sticky-mobile-cta" id="stickyCta">
+    <a href="#contact" class="sticky-cta-form">Get Free Quote</a>
+    <a href="https://wa.me/923302657105?text=Hi%20DigitalDoor!%20I%20want%20a%20website%20for%20my%20business."
+      class="sticky-cta-wa" target="_blank" rel="noopener noreferrer">WhatsApp</a>
   </div>
-</section>
 
-<footer>
-  <div class="footer-inner">
-    <div>
-      <div class="footer-logo">Digital<span>Door</span></div>
-      <div class="footer-copy">© 2025 DigitalDoor. Karachi, Pakistan.</div>
-    </div>
-    <div class="footer-links">
-      <a href="#work">Work</a>
-      <a href="#services">Services</a>
-      <a href="#pricing">Pricing</a>
-      <a href="#faq">FAQ</a>
-      <a href="#contact">Contact</a>
-    </div>
-  </div>
-  <div class="footer-tagline">Crafting digital experiences for Karachi's finest businesses.</div>
-</footer>
+  <a href="https://wa.me/923302657105?text=Hi%20DigitalDoor!%20I%20want%20a%20website%20for%20my%20business."
+    class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp"
+    title="Chat on WhatsApp">
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path
+        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+    </svg>
+  </a>
 
+  <div id="dd-cursor"></div>
+  <div id="dd-cursor-ring"></div>
+  <div id="dd-cursor-trail"></div>
 
-<div class="sticky-mobile-cta" id="stickyCta">
-  <a href="#contact" class="sticky-cta-form">Get Free Quote</a>
-  <a href="https://wa.me/923302657105?text=Hi%20DigitalDoor!%20I%20want%20a%20website%20for%20my%20business." class="sticky-cta-wa" target="_blank" rel="noopener noreferrer">WhatsApp</a>
-</div>
+  <script>
+    // Scroll reveal
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.08 });
+    reveals.forEach(r => observer.observe(r));
 
-<a
-  href="https://wa.me/923302657105?text=Hi%20DigitalDoor!%20I%20want%20a%20website%20for%20my%20business."
-  class="whatsapp-float"
-  target="_blank"
-  rel="noopener noreferrer"
-  aria-label="Chat on WhatsApp"
-  title="Chat on WhatsApp"
->
-  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-</a>
+    // Nav: hide on scroll down, show on scroll up
+    const nav = document.getElementById('mainNav');
+    let lastScrollY = window.scrollY;
+    let scrollTicking = false;
 
-<div id="dd-cursor"></div>
-<div id="dd-cursor-ring"></div>
-<div id="dd-cursor-trail"></div>
+    window.addEventListener('scroll', () => {
+      if (scrollTicking) return;
+      scrollTicking = true;
+      requestAnimationFrame(() => {
+        const y = window.scrollY;
+        const delta = y - lastScrollY;
 
-<script>
-  // Scroll reveal
-  const reveals = document.querySelectorAll('.reveal');
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-  }, { threshold: 0.08 });
-  reveals.forEach(r => observer.observe(r));
+        nav.classList.toggle('scrolled', y > 60);
 
-  // Nav: hide on scroll down, show on scroll up
-  const nav = document.getElementById('mainNav');
-  let lastScrollY = window.scrollY;
-  let scrollTicking = false;
+        if (y <= 60 || document.body.classList.contains('nav-open')) {
+          nav.classList.remove('nav-hidden');
+        } else if (delta > 4) {
+          nav.classList.add('nav-hidden');
+        } else if (delta < -4) {
+          nav.classList.remove('nav-hidden');
+        }
 
-  window.addEventListener('scroll', () => {
-    if (scrollTicking) return;
-    scrollTicking = true;
-    requestAnimationFrame(() => {
-      const y = window.scrollY;
-      const delta = y - lastScrollY;
+        lastScrollY = y;
+        scrollTicking = false;
+      });
+    }, { passive: true });
 
-      nav.classList.toggle('scrolled', y > 60);
-
-      if (y <= 60 || document.body.classList.contains('nav-open')) {
-        nav.classList.remove('nav-hidden');
-      } else if (delta > 4) {
-        nav.classList.add('nav-hidden');
-      } else if (delta < -4) {
-        nav.classList.remove('nav-hidden');
-      }
-
-      lastScrollY = y;
-      scrollTicking = false;
-    });
-  }, { passive: true });
-
-  // Smooth scroll
-  document.querySelectorAll('a[href^="#"]').forEach(a => {
-    a.addEventListener('click', e => {
-      e.preventDefault();
-      const t = document.querySelector(a.getAttribute('href'));
-      if (t) t.scrollIntoView({ behavior: 'smooth' });
-    });
-  });
-
-  // ── CONTACT FORM ──
-  (function() {
-    const form = document.getElementById('contactForm');
-    const successBox = document.getElementById('formSuccess');
-
-    const fields = {
-      name:    { el: document.getElementById('name'),    err: document.getElementById('nameError') },
-      whatsapp: { el: document.getElementById('whatsapp'), err: document.getElementById('whatsappError') },
-      message: { el: document.getElementById('message'), err: document.getElementById('messageError') },
-    };
-
-    function showError(key, msg) {
-      fields[key].el.classList.add('error-input');
-      fields[key].err.textContent = msg;
-      fields[key].err.style.display = 'flex';
-    }
-
-    function clearError(key) {
-      fields[key].el.classList.remove('error-input');
-      fields[key].err.style.display = 'none';
-    }
-
-    function validate() {
-      let valid = true;
-      const name = fields.name.el.value.trim();
-      const whatsapp = fields.whatsapp.el.value.trim();
-      const message = fields.message.el.value.trim();
-
-      if (!name) {
-        showError('name', 'Please enter your name.');
-        valid = false;
-      } else { clearError('name'); }
-
-      const whatsappDigits = whatsapp.replace(/\D/g, '');
-      if (!whatsapp) {
-        showError('whatsapp', 'Please enter your WhatsApp number.');
-        valid = false;
-      } else if (whatsappDigits.length < 10 || whatsappDigits.length > 15) {
-        showError('whatsapp', 'Please enter a valid WhatsApp number.');
-        valid = false;
-      } else { clearError('whatsapp'); }
-
-      if (!message) {
-        showError('message', 'Please tell us about your project.');
-        valid = false;
-      } else { clearError('message'); }
-
-      return valid;
-    }
-
-    // Clear error on input (mirrors React's handleChange)
-    Object.keys(fields).forEach(key => {
-      fields[key].el.addEventListener('input', () => clearError(key));
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        e.preventDefault();
+        const t = document.querySelector(a.getAttribute('href'));
+        if (t) t.scrollIntoView({ behavior: 'smooth' });
+      });
     });
 
-    const submitBtn = document.getElementById('submitBtn');
-    const errorBox = document.getElementById('formError');
-    const errorText = document.getElementById('formErrorText');
+    // ── CONTACT FORM ──
+    (function () {
+      const form = document.getElementById('contactForm');
+      const successBox = document.getElementById('formSuccess');
 
-    const API_URL = window.location.origin.includes('localhost') || window.location.origin.includes('127.0.0.1')
-      ? window.location.origin + '/api/contact'
-      : '/api/contact';
-
-    form.addEventListener('submit', async function(e) {
-      e.preventDefault();
-      successBox.classList.remove('visible');
-      errorBox.classList.remove('visible');
-
-      if (window.location.protocol === 'file:') {
-        errorText.textContent = 'Open the site through the server: http://localhost:3000 — run "cd backend && npm start" in your project folder.';
-        errorBox.classList.add('visible');
-        return;
-      }
-
-      if (!validate()) return;
-
-      const payload = {
-        name: fields.name.el.value.trim(),
-        whatsapp: fields.whatsapp.el.value.trim(),
-        company: document.getElementById('company').value.trim(),
-        message: fields.message.el.value.trim(),
+      const fields = {
+        name: { el: document.getElementById('name'), err: document.getElementById('nameError') },
+        whatsapp: { el: document.getElementById('whatsapp'), err: document.getElementById('whatsappError') },
+        message: { el: document.getElementById('message'), err: document.getElementById('messageError') },
       };
 
-      submitBtn.disabled = true;
-      submitBtn.textContent = 'Sending…';
+      function showError(key, msg) {
+        fields[key].el.classList.add('error-input');
+        fields[key].err.textContent = msg;
+        fields[key].err.style.display = 'flex';
+      }
 
-      try {
-        const res = await fetch(API_URL, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(payload),
-        });
-        const data = await res.json().catch(() => ({}));
+      function clearError(key) {
+        fields[key].el.classList.remove('error-input');
+        fields[key].err.style.display = 'none';
+      }
 
-        if (!res.ok) {
-          throw new Error(data.error || 'Could not send your message. Please try again.');
+      function validate() {
+        let valid = true;
+        const name = fields.name.el.value.trim();
+        const whatsapp = fields.whatsapp.el.value.trim();
+        const message = fields.message.el.value.trim();
+
+        if (!name) {
+          showError('name', 'Please enter your name.');
+          valid = false;
+        } else { clearError('name'); }
+
+        const whatsappDigits = whatsapp.replace(/\D/g, '');
+        if (!whatsapp) {
+          showError('whatsapp', 'Please enter your WhatsApp number.');
+          valid = false;
+        } else if (whatsappDigits.length < 10 || whatsappDigits.length > 15) {
+          showError('whatsapp', 'Please enter a valid WhatsApp number.');
+          valid = false;
+        } else { clearError('whatsapp'); }
+
+        if (!message) {
+          showError('message', 'Please tell us about your project.');
+          valid = false;
+        } else { clearError('message'); }
+
+        return valid;
+      }
+
+      // Clear error on input (mirrors React's handleChange)
+      Object.keys(fields).forEach(key => {
+        fields[key].el.addEventListener('input', () => clearError(key));
+      });
+
+      const submitBtn = document.getElementById('submitBtn');
+      const errorBox = document.getElementById('formError');
+      const errorText = document.getElementById('formErrorText');
+
+      const API_URL = window.location.origin.includes('localhost') || window.location.origin.includes('127.0.0.1')
+        ? window.location.origin + '/api/contact'
+        : '/api/contact';
+
+      form.addEventListener('submit', async function (e) {
+        e.preventDefault();
+        successBox.classList.remove('visible');
+        errorBox.classList.remove('visible');
+
+        if (window.location.protocol === 'file:') {
+          errorText.textContent = 'Open the site through the server: http://localhost:3000 — run "cd backend && npm start" in your project folder.';
+          errorBox.classList.add('visible');
+          return;
         }
 
-        successBox.classList.add('visible');
-        fields.name.el.value = '';
-        fields.whatsapp.el.value = '';
-        document.getElementById('company').value = '';
-        fields.message.el.value = '';
-      } catch (err) {
-        errorText.textContent = err.message || 'Something went wrong. Please try again or use WhatsApp.';
-        errorBox.classList.add('visible');
-      } finally {
-        submitBtn.disabled = false;
-        submitBtn.textContent = 'Send Inquiry';
-      }
-    });
-  })();
+        if (!validate()) return;
 
+        const payload = {
+          name: fields.name.el.value.trim(),
+          whatsapp: fields.whatsapp.el.value.trim(),
+          company: document.getElementById('company').value.trim(),
+          message: fields.message.el.value.trim(),
+        };
 
-  // Lucide icons
-  document.addEventListener('DOMContentLoaded', () => {
-    if (typeof lucide !== 'undefined') lucide.createIcons();
-  });
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending…';
 
-  // Mobile nav
-  (function() {
-    const toggle = document.getElementById('navToggle');
-    const mobileNav = document.getElementById('mobileNav');
-    if (!toggle || !mobileNav) return;
-    function closeNav() {
-      document.body.classList.remove('nav-open');
-      toggle.setAttribute('aria-expanded', 'false');
-      mobileNav.setAttribute('aria-hidden', 'true');
-    }
-    toggle.addEventListener('click', () => {
-      const open = document.body.classList.toggle('nav-open');
-      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-      mobileNav.setAttribute('aria-hidden', open ? 'false' : 'true');
-    });
-    mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', closeNav));
-  })();
+        try {
+          const res = await fetch(API_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload),
+          });
+          const data = await res.json().catch(() => ({}));
 
-  // Hero carousel
-  (function() {
-    const slides = document.querySelectorAll('#heroCarousel .carousel-slide');
-    const dots = document.querySelectorAll('#carouselDots .carousel-dot');
-    if (!slides.length) return;
-    let i = 0;
-    function go(n) {
-      slides[i].classList.remove('active');
-      dots[i].classList.remove('active');
-      i = (n + slides.length) % slides.length;
-      slides[i].classList.add('active');
-      dots[i].classList.add('active');
-    }
-    dots.forEach((d, idx) => d.addEventListener('click', () => go(idx)));
-    setInterval(() => go(i + 1), 4500);
-  })();
+          if (!res.ok) {
+            throw new Error(data.error || 'Could not send your message. Please try again.');
+          }
 
-  // Stat counters
-  (function() {
-    const stats = document.getElementById('heroStats');
-    if (!stats) return;
-    const nums = stats.querySelectorAll('[data-count]');
-    let done = false;
-    function animateCount(el) {
-      const target = +el.dataset.count;
-      const suffix = el.dataset.suffix || '';
-      const duration = 1400;
-      const start = performance.now();
-      function tick(now) {
-        const p = Math.min((now - start) / duration, 1);
-        const eased = 1 - Math.pow(1 - p, 3);
-        el.textContent = Math.round(target * eased) + suffix;
-        if (p < 1) requestAnimationFrame(tick);
-      }
-      requestAnimationFrame(tick);
-    }
-    const obs = new IntersectionObserver(entries => {
-      if (done) return;
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          done = true;
-          nums.forEach(animateCount);
-          obs.disconnect();
+          successBox.classList.add('visible');
+          fields.name.el.value = '';
+          fields.whatsapp.el.value = '';
+          document.getElementById('company').value = '';
+          fields.message.el.value = '';
+        } catch (err) {
+          errorText.textContent = err.message || 'Something went wrong. Please try again or use WhatsApp.';
+          errorBox.classList.add('visible');
+        } finally {
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Send Inquiry';
         }
       });
-    }, { threshold: 0.3 });
-    obs.observe(stats);
-  })();
+    })();
 
-  // Re-init icons after reveal
-  const revealObs = new MutationObserver(() => {
-    if (typeof lucide !== 'undefined') lucide.createIcons();
-  });
-  document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el, { attributes: true, attributeFilter: ['class'] }));
 
-  // ── CUSTOM CURSOR ──
-  (function() {
-    const dot   = document.getElementById('dd-cursor');
-    const ring  = document.getElementById('dd-cursor-ring');
-    const trail = document.getElementById('dd-cursor-trail');
-    const body  = document.body;
-    const desktopQuery = window.matchMedia('(min-width: 901px)');
-    const hoverSelector = 'a, button, .service-card, .team-card, .pricing-card, .portfolio-card, .testimonial-card, .why-point, .process-step, .whatsapp-float, input, textarea';
+    // Lucide icons
+    document.addEventListener('DOMContentLoaded', () => {
+      if (typeof lucide !== 'undefined') lucide.createIcons();
+    });
 
-    let mx = -100, my = -100, rx = -100, ry = -100, tx = -100, ty = -100;
-    let active = false, rafId = null;
+    // Mobile nav
+    (function () {
+      const toggle = document.getElementById('navToggle');
+      const mobileNav = document.getElementById('mobileNav');
+      if (!toggle || !mobileNav) return;
+      function closeNav() {
+        document.body.classList.remove('nav-open');
+        toggle.setAttribute('aria-expanded', 'false');
+        mobileNav.setAttribute('aria-hidden', 'true');
+      }
+      toggle.addEventListener('click', () => {
+        const open = document.body.classList.toggle('nav-open');
+        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+        mobileNav.setAttribute('aria-hidden', open ? 'false' : 'true');
+      });
+      mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', closeNav));
+    })();
 
-    function setPosition(el, x, y) { el.style.left = x + 'px'; el.style.top = y + 'px'; }
+    // Hero carousel
+    (function () {
+      const slides = document.querySelectorAll('#heroCarousel .carousel-slide');
+      const dots = document.querySelectorAll('#carouselDots .carousel-dot');
+      if (!slides.length) return;
+      let i = 0;
+      function go(n) {
+        slides[i].classList.remove('active');
+        dots[i].classList.remove('active');
+        i = (n + slides.length) % slides.length;
+        slides[i].classList.add('active');
+        dots[i].classList.add('active');
+      }
+      dots.forEach((d, idx) => d.addEventListener('click', () => go(idx)));
+      setInterval(() => go(i + 1), 4500);
+    })();
 
-    function animate() {
-      rx += (mx - rx) * 0.12; ry += (my - ry) * 0.12;
-      tx += (mx - tx) * 0.06; ty += (my - ty) * 0.06;
-      setPosition(dot, mx, my); setPosition(ring, rx, ry); setPosition(trail, tx, ty);
-      rafId = requestAnimationFrame(animate);
-    }
+    // Stat counters
+    (function () {
+      const stats = document.getElementById('heroStats');
+      if (!stats) return;
+      const nums = stats.querySelectorAll('[data-count]');
+      let done = false;
+      function animateCount(el) {
+        const target = +el.dataset.count;
+        const suffix = el.dataset.suffix || '';
+        const duration = 1400;
+        const start = performance.now();
+        function tick(now) {
+          const p = Math.min((now - start) / duration, 1);
+          const eased = 1 - Math.pow(1 - p, 3);
+          el.textContent = Math.round(target * eased) + suffix;
+          if (p < 1) requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+      }
+      const obs = new IntersectionObserver(entries => {
+        if (done) return;
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            done = true;
+            nums.forEach(animateCount);
+            obs.disconnect();
+          }
+        });
+      }, { threshold: 0.3 });
+      obs.observe(stats);
+    })();
 
-    function enableCursor() {
-      if (active) return; active = true;
-      body.classList.add('custom-cursor');
-      rafId = requestAnimationFrame(animate);
-    }
+    // Re-init icons after reveal
+    const revealObs = new MutationObserver(() => {
+      if (typeof lucide !== 'undefined') lucide.createIcons();
+    });
+    document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el, { attributes: true, attributeFilter: ['class'] }));
 
-    function disableCursor() {
-      if (!active) return; active = false;
-      body.classList.remove('custom-cursor', 'cursor-visible', 'cursor-hover', 'cursor-click');
-      if (rafId) cancelAnimationFrame(rafId); rafId = null;
-    }
+    // ── CUSTOM CURSOR ──
+    (function () {
+      const dot = document.getElementById('dd-cursor');
+      const ring = document.getElementById('dd-cursor-ring');
+      const trail = document.getElementById('dd-cursor-trail');
+      const body = document.body;
+      const desktopQuery = window.matchMedia('(min-width: 901px)');
+      const hoverSelector = 'a, button, .service-card, .team-card, .pricing-card, .portfolio-card, .testimonial-card, .why-point, .process-step, .whatsapp-float, input, textarea';
 
-    document.addEventListener('mousemove', e => { if (!active) return; mx = e.clientX; my = e.clientY; body.classList.add('cursor-visible'); });
-    document.addEventListener('mouseover', e => { if (!active) return; body.classList.toggle('cursor-hover', !!e.target.closest(hoverSelector)); });
-    document.addEventListener('mousedown', () => active && body.classList.add('cursor-click'));
-    document.addEventListener('mouseup', () => body.classList.remove('cursor-click'));
-    document.addEventListener('mouseleave', () => body.classList.remove('cursor-visible', 'cursor-hover', 'cursor-click'));
-    document.addEventListener('mouseenter', () => active && body.classList.add('cursor-visible'));
+      let mx = -100, my = -100, rx = -100, ry = -100, tx = -100, ty = -100;
+      let active = false, rafId = null;
 
-    desktopQuery.addEventListener('change', e => e.matches ? enableCursor() : disableCursor());
-    if (desktopQuery.matches) enableCursor();
-  })();
-</script>
+      function setPosition(el, x, y) { el.style.left = x + 'px'; el.style.top = y + 'px'; }
+
+      function animate() {
+        rx += (mx - rx) * 0.12; ry += (my - ry) * 0.12;
+        tx += (mx - tx) * 0.06; ty += (my - ty) * 0.06;
+        setPosition(dot, mx, my); setPosition(ring, rx, ry); setPosition(trail, tx, ty);
+        rafId = requestAnimationFrame(animate);
+      }
+
+      function enableCursor() {
+        if (active) return; active = true;
+        body.classList.add('custom-cursor');
+        rafId = requestAnimationFrame(animate);
+      }
+
+      function disableCursor() {
+        if (!active) return; active = false;
+        body.classList.remove('custom-cursor', 'cursor-visible', 'cursor-hover', 'cursor-click');
+        if (rafId) cancelAnimationFrame(rafId); rafId = null;
+      }
+
+      document.addEventListener('mousemove', e => { if (!active) return; mx = e.clientX; my = e.clientY; body.classList.add('cursor-visible'); });
+      document.addEventListener('mouseover', e => { if (!active) return; body.classList.toggle('cursor-hover', !!e.target.closest(hoverSelector)); });
+      document.addEventListener('mousedown', () => active && body.classList.add('cursor-click'));
+      document.addEventListener('mouseup', () => body.classList.remove('cursor-click'));
+      document.addEventListener('mouseleave', () => body.classList.remove('cursor-visible', 'cursor-hover', 'cursor-click'));
+      document.addEventListener('mouseenter', () => active && body.classList.add('cursor-visible'));
+
+      desktopQuery.addEventListener('change', e => e.matches ? enableCursor() : disableCursor());
+      if (desktopQuery.matches) enableCursor();
+    })();
+  </script>
 </body>
+
 </html>
